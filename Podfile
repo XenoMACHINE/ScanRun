@@ -1,14 +1,15 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'ScriptRun' do
+target 'ScanRun' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for ScriptRun
+  # Pods for ScanRun
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'FirebaseUI'
   pod 'Firebase/Storage'
+  pod 'Firebase/Functions'
 
 end

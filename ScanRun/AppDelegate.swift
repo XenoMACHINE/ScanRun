@@ -1,12 +1,13 @@
 //
 //  AppDelegate.swift
-//  ScriptRun
+//  ScanRun
 //
 //  Created by Alexandre Ménielle on 04/09/2018.
 //  Copyright © 2018 Alexandre Ménielle. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 

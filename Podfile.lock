@@ -29,6 +29,9 @@ PODS:
   - Firebase/Firestore (5.7.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 0.13.2)
+  - Firebase/Functions (5.7.0):
+    - Firebase/CoreOnly
+    - FirebaseFunctions (= 2.1.0)
   - Firebase/Storage (5.7.0):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.1)
@@ -67,6 +70,9 @@ PODS:
     - leveldb-library (~> 1.18)
     - nanopb (~> 0.3.8)
     - Protobuf (~> 3.1)
+  - FirebaseFunctions (2.1.0):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseInstanceID (3.2.1):
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.2)
@@ -182,6 +188,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
+  - Firebase/Functions
   - Firebase/Storage
   - FirebaseUI
 
@@ -198,6 +205,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseDatabase
     - FirebaseFirestore
+    - FirebaseFunctions
     - FirebaseInstanceID
     - FirebaseStorage
     - FirebaseUI
@@ -230,6 +238,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 3a97432acb324b439fbed338e642f9cbb516a63d
   FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   FirebaseFirestore: 7eec93809ad61e7ebe303089c5cc5efa63424b72
+  FirebaseFunctions: 0cb3bc0bbeac1daf6fea378a1064ff7f484e4c4e
   FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
   FirebaseStorage: 43f823b96b72a08539eba21a7de043348a69d4c6
   FirebaseUI: 9dfa423b6f1b73737ae8ab62692c1c0a8886186d
@@ -250,6 +259,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 8b7ec7afd63d7bb0b0dceb6b112af52f0c8b51ff
+PODFILE CHECKSUM: 23b5643a3c5665118238902f9c3f88a505b1c86a
 
 COCOAPODS: 1.5.3
