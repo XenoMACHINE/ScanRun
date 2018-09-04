@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseFunctions
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
@@ -17,9 +18,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //db = Firestore.firestore()
-        testFirestore()
-        testCallFirebaseFunction()
+        
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        //testFirestore()
+        Auth.auth().signInAnonymously { (result, error) in
+            self.testCallFirebaseFunction()
+        }
     }
 
     override func didReceiveMemoryWarning() {
