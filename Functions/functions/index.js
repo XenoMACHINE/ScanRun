@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const https = require('https');
+const request = require('request');
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -36,22 +37,15 @@ exports.getProduct = functions.https.onCall((data, context) => {
     // Authentication / user information is automatically added to the request.
     const uid = context.auth.uid;
     const email = context.auth.token.email || null;
+    const url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + ean;
+    var test;
 
-    https.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', (resp) => {
-        let data = '';
-
-        // A chunk of data has been recieved.
-        resp.on('data', (chunk) => {
-            data += chunk;
-        });
-
-        // The whole response has been received. Print out the result.
-        resp.on('end', () => {
-            console.log(JSON.parse(data).explanation);
-            return { text: ean };
-        });
-
-    }).on("error", (err) => {
-        console.log("Error: " + err.message);
+    request(url, (error, resp, body) => {
+      if (!error && resp.statusCode == 200) {
+        // C'est ok
+        test = body;
+        console.log(body);
+        return {response: body};
+      }
     });
 });

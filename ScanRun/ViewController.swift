@@ -56,8 +56,8 @@ class ViewController: UIViewController {
                     print("\(String(describing: code)) - \(message) - \(String(describing: details))")
                 }
             }
-            if let text = (result?.data as? [String: Any])?["text"] as? String {
-                print(text)
+            if let response = (result?.data as? [String: Any])?["response"] as? String {
+                print(response)
             }
         }
     }
