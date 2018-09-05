@@ -28,7 +28,8 @@ class ViewController: UIViewController {
             result?.user.getIDToken(completion: { (idToken, error) in
                 if let token = idToken{
                     UserManager.shared.token = token
-                    self.testCallFirebaseFunction()
+                    self.testJsonToDB()
+                    //self.testCallFirebaseFunction()
                 }
             })
         }
@@ -72,5 +73,24 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func testJsonToDB(){
+        var json : JSON = []
+        
+        if let path = Bundle.main.path(forResource: "myjsonfile", ofType: "json"){
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                json = JSON(data: data)
+                if json == JSON.null {
+                    print("Could not get json from file, make sure that file contains valid json.")
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        } else {
+            print("Invalid filename/path.")
+        }
+    }
+    
 }
 
