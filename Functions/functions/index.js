@@ -38,4 +38,6 @@ exports.addMessage = functions.https.onCall((data, context) => {
   const picture = context.auth.token.picture || null;
   const email = context.auth.token.email || null;
   console.log(text + ", " + name + ", " + picture + ", " + email + ", " + uid);
+
+  return { text : text };
 });

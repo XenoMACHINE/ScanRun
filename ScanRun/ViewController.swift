@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                     let code = FunctionsErrorCode(rawValue: error.code)
                     let message = error.localizedDescription
                     let details = error.userInfo[FunctionsErrorDetailsKey]
-                    print("\(code) - \(message) - \(details)")
+                    print("\(String(describing: code)) - \(message) - \(String(describing: details))")
                 }
             }
             if let text = (result?.data as? [String: Any])?["text"] as? String {
