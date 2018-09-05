@@ -32,6 +32,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func goToScan(segue: UIStoryboardSegue) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "scan") as! ScanViewController
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
 
 
     func testFirestore(){
