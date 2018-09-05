@@ -1,5 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const request = require('request');
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -33,7 +34,7 @@ exports.autoDeleteUser = functions.auth.user().onDelete((user) => {
 
 
 //Callable from app
-exports.getProduct = functions.https.onCall((data, context) => {
+/*exports.getProduct = functions.https.onCall((data, context) => {
 
     const ean = data.ean;
 
@@ -42,14 +43,14 @@ exports.getProduct = functions.https.onCall((data, context) => {
     const email = context.auth.token.email || null;
     var url = "https://fr.openfoodfacts.org/api/v0/produit/" + ean + ".json"
 
-    /*request(url, (error, resp, body) => {
+    request(url, (error, resp, body) => {
         if (!error && resp.statusCode === 200) {
             // C'est ok
             console.log("OPEN FOOD FACTS");
             console.log(body);
             return { text: body };
         }
-    });*/
+    });
 
     url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + ean;
     request(url, (error, resp, body) => {
@@ -63,7 +64,51 @@ exports.getProduct = functions.https.onCall((data, context) => {
           return error;
       }
     });
-});
+}); */
 
-//Endpoints
+let authenticate = (req, res, next) => {
+    if (!req.headers.authorization || !req.headers.authorization.startsWith('Bearer ')) {
+        res.status(403).send('Unauthorized');
+        return;
+    }
+    const idToken = req.headers.authorization.split('Bearer ')[1];
+    admin.auth().verifyIdToken(idToken)
+        .then((decoded) => {
+            req.user = decoded;
+            next();
+        })
+        .catch((err) => {
+            res.status(401).send(err);
+        });
+};
+
+let getProduct = (req, res) => {
+
+    const ean = req.params.ean;
+    let url = "https://fr.openfoodfacts.org/api/v0/produit/" + ean + ".json"
+
+
+    url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + ean;
+
+    request(url, (error, resp, body) => {
+        if (!error && resp.statusCode === 200) {
+            // C'est ok
+            console.log("UPC ITEM DB");
+            console.log(body);
+
+            res.send(body);
+        }else{
+            res.status(500).send(error);
+        }
+    });
+};
+
+//Config
 app.use(cors({ origin: true }));
+app.use(authenticate);
+
+//Roots
+app.get('/getProduct/:ean', getProduct);
+
+//Deploy
+exports.api = functions.https.onRequest(app);

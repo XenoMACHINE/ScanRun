@@ -11,5 +11,6 @@ target 'ScanRun' do
   pod 'FirebaseUI'
   pod 'Firebase/Storage'
   pod 'Firebase/Functions'
+  pod 'Alamofire', '~> 4.7'
 
 end

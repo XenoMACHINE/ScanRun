@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45849C03213FE978005AB34A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45849C02213FE978005AB34A /* ScanViewController.swift */; };
+		AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B7564214025A2008F5A39 /* UserManager.swift */; };
 		ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */; };
 		ADBA5AF5213F150A007ABEF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF4213F150A007ABEF5 /* ViewController.swift */; };
 		ADBA5AF8213F150A007ABEF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA5AF6213F150A007ABEF5 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		34D3FDB3EFA8116FD9277D8C /* Pods-ScanRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanRun.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanRun/Pods-ScanRun.release.xcconfig"; sourceTree = "<group>"; };
 		45849C02213FE978005AB34A /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		64DB659265CEC5945BDAA98F /* Pods_ScanRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD5B7564214025A2008F5A39 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		ADBA5AEF213F150A007ABEF5 /* ScanRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADBA5AF4213F150A007ABEF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				ADBA5AF4213F150A007ABEF5 /* ViewController.swift */,
 				45849C02213FE978005AB34A /* ScanViewController.swift */,
 				ADBA5AF9213F150A007ABEF5 /* Assets.xcassets */,
+				AD5B7564214025A2008F5A39 /* UserManager.swift */,
 			);
 			path = ScanRun;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ScanRun/Pods-ScanRun-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -242,6 +246,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -275,6 +280,7 @@
 			files = (
 				ADBA5AF5213F150A007ABEF5 /* ViewController.swift in Sources */,
 				ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */,
+				AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */,
 				45849C03213FE978005AB34A /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
