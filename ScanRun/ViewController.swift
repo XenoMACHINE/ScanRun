@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     func testCallFirebaseFunction(){
-        functions.httpsCallable("addMessage").call(["text": "test"]) { (result, error) in
+        functions.httpsCallable("getProduct").call(["ean": "0711719937364"]) { (result, error) in
             if let error = error as NSError? {
                 if error.domain == FunctionsErrorDomain {
                     let code = FunctionsErrorCode(rawValue: error.code)
