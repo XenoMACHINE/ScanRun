@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     }
     
     func testCallFirebaseFunction(){
-        let url = "https://us-central1-scanrun-5f26e.cloudfunctions.net/api/getProduct/0711719937364"
+        let url = "https://us-central1-scanrun-5f26e.cloudfunctions.net/api/getProduct/3274080005003"
         let headers : HTTPHeaders = ["Authorization":"Bearer \(UserManager.shared.token ?? "")"]
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             switch response.result {

@@ -84,23 +84,66 @@ let authenticate = (req, res, next) => {
 
 let getProduct = (req, res) => {
 
+    let found = false;
     const ean = req.params.ean;
+    console.log("EAN : ", ean);
+
+    //Try find in db
+    /*
+    db.collection('products').doc(ean).get()
+        .then(doc => {
+            if (!found) {
+                if (!doc.exists) {
+                    res.status(404).send('No product found');
+                } else {
+                    found = true;
+                    console.log("DATABASE");
+                    res.send(doc.data());
+                }
+            }
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+    */
+
     let url = "https://fr.openfoodfacts.org/api/v0/produit/" + ean + ".json"
-
-
-    url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + ean;
-
     request(url, (error, resp, body) => {
-        if (!error && resp.statusCode === 200) {
-            // C'est ok
-            console.log("UPC ITEM DB");
-            console.log(body);
+        if (!found){
+            if (!error && resp.statusCode === 200) {
+                //Verif si status_verbose == "product found"   comment?
+                found = true;
+                console.log("OPEN FOOD FACTS");
+                console.log("SEND DATA TO DB");
+                db.collection('products').doc(ean).set({
+                    id: ean,
+                    name: 'Test !',
+                    quantity: "12000 L",
+                    brand: "Marque lavoine"
+                });
 
-            res.send(body);
-        }else{
-            res.status(500).send(error);
+                res.send(body);
+            }else{
+                res.status(500).send(error);
+            }
         }
     });
+
+    /*
+    url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + ean;
+    request(url, (error, resp, body) => {
+        if (!found) {
+            if (!error && resp.statusCode === 200) {
+                //Verif si total > 0   comment?
+                found = true;
+                console.log(body);
+                console.log("UPC ITEM DB");
+                res.send(body);
+            } else {
+                res.status(500).send(error);
+            }
+        }
+    });*/
 };
 
 //Config
