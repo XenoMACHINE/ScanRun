@@ -157,7 +157,7 @@ class ScanViewController: UIViewController {
                     }
                     
                 }
-                //self.dismiss(animated: true, completion: nil)
+                
                 break
                 
             case .failure(let error):
@@ -201,6 +201,17 @@ class ScanViewController: UIViewController {
         alertPrompt.addAction(cancelAction)
         
         present(alertPrompt, animated: true, completion: nil)
+    }
+    
+    func reScan() {
+        self.messageLabel.text = "Scannez le produit"
+        self.messageLabel.backgroundColor = UIColor.lightGray
+        self.productView.isHidden = true
+        self.captureSession.startRunning()
+    }
+    
+    @IBAction func reScanProduct(_ sender: Any) {
+        reScan()
     }
     
     @IBAction func onClose(_ sender: Any) {
