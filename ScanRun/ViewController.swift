@@ -10,12 +10,14 @@ import UIKit
 import FirebaseFirestore
 import FirebaseFunctions
 import FirebaseAuth
+import FirebaseStorage
 import Alamofire
 
 class ViewController: UIViewController {
 
     lazy var db = Firestore.firestore()
     lazy var functions = Functions.functions()
+    lazy var storage = Storage.storage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
             result?.user.getIDToken(completion: { (idToken, error) in
                 if let token = idToken{
                     UserManager.shared.token = token
-                    self.testJsonToDB()
+                    //self.testJsonToDB()
                     //self.testCallFirebaseFunction()
                 }
             })
@@ -76,11 +78,36 @@ class ViewController: UIViewController {
     
     func testJsonToDB(){
         var json : JSON = []
-        
+        //let storageRef = storage.reference()
         if let path = Bundle.main.path(forResource: "myjsonfile", ofType: "json"){
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 json = JSON(data: data)
+                
+                var count = 0
+                for obj in json.arrayObject ?? []{
+                    if var jsonObj = obj as? [String:Any]{
+//
+//                        if let imageUrl = jsonObj["image"] as? String{
+//                            jsonObj["image"] = nil
+//                            storageRef.child("images")
+//                        }
+//
+                        if let id = jsonObj["id"] as? String{
+                            db.collection("products").document(id).setData(jsonObj, merge : true)
+                        }
+                        
+                        count += 1
+                        
+                        if count % 1000 == 0 {
+                            print(count)
+                            print(jsonObj)
+                            print("########## IN PROGRESS ########## \n")
+                        }
+                        
+                    }
+                }
+                
                 if json == JSON.null {
                     print("Could not get json from file, make sure that file contains valid json.")
                 }

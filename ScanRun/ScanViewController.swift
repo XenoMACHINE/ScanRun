@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 
 class ScanViewController: UIViewController {
     
@@ -92,6 +93,22 @@ class ScanViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func getProduct(ean : String){
+        let url = "https://us-central1-scanrun-5f26e.cloudfunctions.net/api/getProduct/" + ean
+        let headers : HTTPHeaders = ["Authorization":"Bearer \(UserManager.shared.token ?? "")"]
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                print(response)
+                break
+                
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
+    }
+    
     // MARK: - Helper methods
     func launchApp(decodedURL: String) {
         
@@ -137,9 +154,11 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
-            if metadataObj.stringValue != nil {
-                launchApp(decodedURL: metadataObj.stringValue!)
+            if metadataObj.stringValue != nil, let ean = metadataObj.stringValue  {
+                launchApp(decodedURL: ean)
+                getProduct(ean: ean)
                 messageLabel.text = metadataObj.stringValue
+                captureSession.stopRunning()
             }
         }
     }
