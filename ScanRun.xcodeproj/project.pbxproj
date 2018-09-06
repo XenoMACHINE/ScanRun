@@ -11,6 +11,7 @@
 		AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B7564214025A2008F5A39 /* UserManager.swift */; };
 		AD5B7567214083ED008F5A39 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */; };
 		AD5B756921408D1F008F5A39 /* myjsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = AD5B756821408D1F008F5A39 /* myjsonfile.json */; };
+		AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */; };
 		ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */; };
 		ADBA5AF5213F150A007ABEF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF4213F150A007ABEF5 /* ViewController.swift */; };
 		ADBA5AF8213F150A007ABEF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA5AF6213F150A007ABEF5 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		AD5B7564214025A2008F5A39 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		AD5B756821408D1F008F5A39 /* myjsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = myjsonfile.json; sourceTree = "<group>"; };
+		AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		ADBA5AEF213F150A007ABEF5 /* ScanRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADBA5AF4213F150A007ABEF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				AD5B7564214025A2008F5A39 /* UserManager.swift */,
 				AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */,
 				AD5B756821408D1F008F5A39 /* myjsonfile.json */,
+				AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */,
 			);
 			path = ScanRun;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
@@ -262,6 +266,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
@@ -286,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADBA5AF5213F150A007ABEF5 /* ViewController.swift in Sources */,
+				AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */,
 				ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */,
 				AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */,
 				AD5B7567214083ED008F5A39 /* SwiftyJSON.swift in Sources */,

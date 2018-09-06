@@ -82,115 +82,93 @@ let authenticate = (req, res, next) => {
         });
 };
 
-let getProduct = (req, res) => {
-
-    let found = false;
-    let nbApiCalled = 0;
-    const ean = req.params.ean;
-    const nbApiToCall = 2;
-    console.log("EAN : ", ean);
-
-    //Try find in db
+function findInDB(ean, res){
     db.collection('products').doc(ean).get()
         .then(doc => {
-            nbApiCalled++;
             console.log("DATABASE");
-            console.log("FOUND : ", found);
-            if (!found) {
-                if (!doc.exists) {
-                    console.log("DB don't find");
-                    if (nbApiCalled == nbApiToCall){
-                        console.log("no product found anywhere");
-                        return res.status(404).send('No product found');
-                    }
-                } else {
-                    found = true;
-                    console.log(doc.data());
-                    res.send(doc.data());
-                }
+            if (!doc.exists) {
+                console.log("DB don't find");
+                findInOpenFoodFacts(ean, res);
+                //return res.status(404).send('No product found');
+            } else {
+                console.log(doc.data());
+                return res.send(doc.data());
             }
         })
         .catch(err => {
-            nbApiCalled++;
             console.log("DB don't find");
-            if (nbApiCalled == nbApiToCall){
-                console.log("no product found anywhere");
-                return res.status(404).send('No product found');
-            }
+            findInOpenFoodFacts(ean, res);
+            //return res.status(404).send('No product found');
         });
+}
 
-
+function findInOpenFoodFacts(ean, res){
     let url = "https://fr.openfoodfacts.org/api/v0/produit/" + ean + ".json"
     request(url, (error, resp, body) => {
-        nbApiCalled++;
         console.log("OPEN FOOD FACTS");
         console.log(body);
-        console.log("FOUND : ", found);
-        if (!found){
-            if (!error && resp.statusCode === 200) {
-                let json = JSON.parse(body);
-                if (json.status != 0){
-                    found = true;
-                    let product = json.items[0];
-                    db.collection('products').doc(ean).set({
-                        id: product.ean,
-                        name: product.title,
-                        brand: product.brand
-                    });
-                    return res.send(body);
-                }else {
-                    console.log("OPEN FOOD don't find");
-                    if (nbApiCalled == nbApiToCall){
-                        console.log("no product found anywhere");
-                        res.status(404).send('No product found');
-                    }
+        if (!error && resp.statusCode === 200) {
+            let json = JSON.parse(body);
+            let product = json.product;
+            if (json.status != 0){
+                if (product.id != undefined){
+                    let post = {
+                        id: product.id,
+                        name: product.product_name || product_name_fr || product.generic_name_fr || product.generic_name || "",
+                        brand: product.brands || ""
+                    };
+                    db.collection('products').doc(ean).set(post);
                 }
-            }else{
+                return res.send(post);
+            }else {
                 console.log("OPEN FOOD don't find");
-                if (nbApiCalled == nbApiToCall){
-                    console.log("no product found anywhere");
-                    return res.status(404).send('No product found');
-                }
+                findInUpcItem(ean, res);
             }
+        }else{
+            console.log("OPEN FOOD don't find");
+            findInUpcItem(ean, res);
+            //return res.status(404).send('No product found');
         }
     });
+}
 
-
-    url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + ean;
+function findInUpcItem(ean, res) {
+    let url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + ean;
     request(url, (error, resp, body) => {
-        nbApiCalled++;
         console.log("UPC ITEM DB");
         console.log(body);
-        console.log("FOUND : ", found);
-        if (!found) {
-            if (!error && resp.statusCode === 200) {
-                let json = JSON.parse(body);
-                if (json.total > 0 && json.code != "INVALID_UPC") {
-                    found = true;
-                    console.log("SEND DATA TO DB");
-                    let product = json.items[0];
-                    db.collection('products').doc(ean).set({
-                        id: product.ean,
-                        name: product.title,
-                        brand: product.brand
-                    });
-                    return res.send(body);
-                }else {
-                    console.log("UPC don't find");
-                    if (nbApiCalled == nbApiToCall) {
-                        console.log("no product found anywhere");
-                        return res.status(404).send('No product found');
-                    }
-                }
-            } else {
-                console.log("UPC don't find 404");
-                if (nbApiCalled == nbApiToCall){
-                    console.log("no product found anywhere");
-                    return res.status(404).send('No product found');
-                }
+        if (!error && resp.statusCode === 200) {
+            let json = JSON.parse(body);
+            if (json.total > 0 && json.code != "INVALID_UPC") {
+                console.log("SEND DATA TO DB");
+                let product = json.items[0];
+                let post = {
+                    id: product.ean,
+                    name: product.title,
+                    brand: product.brand
+                };
+                db.collection('products').doc(ean).set(post);
+                return res.send(post);
+            }else {
+                console.log("UPC don't find");
+                //findInOpenFoodFacts();
+                return res.status(404).send('No product found');
             }
+        } else {
+            console.log("UPC don't find 404");
+            //findInOpenFoodFacts();
+            return res.status(404).send('No product found');
         }
     });
+}
+
+let getProduct = (req, res) => {
+    const ean = req.params.ean;
+    console.log("EAN : ", ean);
+
+    //Try find in db
+    findInDB(ean, res);
+    //findInOpenFoodFacts(ean, res);
 };
 
 //Config

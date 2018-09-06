@@ -178,6 +178,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (4.3.0):
+    - NVActivityIndicatorView/Presenter (= 4.3.0)
+  - NVActivityIndicatorView/Presenter (4.3.0)
   - Protobuf (3.6.1)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
@@ -193,6 +196,7 @@ DEPENDENCIES:
   - Firebase/Functions
   - Firebase/Storage
   - FirebaseUI
+  - NVActivityIndicatorView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -224,6 +228,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NVActivityIndicatorView
     - Protobuf
     - SDWebImage
     - TwitterCore
@@ -258,11 +263,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: 963f62bf9f993fcf23218e55958e5b1761b9504c
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 60832c09268a7f691939eed9230a0d51de89e5f2
+PODFILE CHECKSUM: 049a0c15e30caca043aa484a64e2837228b4f09e
 
 COCOAPODS: 1.5.3

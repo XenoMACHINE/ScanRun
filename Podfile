@@ -12,5 +12,6 @@ target 'ScanRun' do
   pod 'Firebase/Storage'
   pod 'Firebase/Functions'
   pod 'Alamofire', '~> 4.7'
+  pod 'NVActivityIndicatorView'
 
 end

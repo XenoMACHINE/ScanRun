@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     lazy var db = Firestore.firestore()
     lazy var functions = Functions.functions()
     lazy var storage = Storage.storage()
+    var dbArray : [[String:Any]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,8 @@ class ViewController: UIViewController {
     @IBAction func goToScan(segue: UIStoryboardSegue) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "scan") as! ScanViewController
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        //self.navigationController?.pushViewController(nextViewController, animated: true)
+        self.present(nextViewController, animated: true)
     }
 
     func testFirestore(){
@@ -76,13 +78,42 @@ class ViewController: UIViewController {
         }
     }
     
+    func pushIndex(i : Int){
+        
+        let jsonObj = dbArray[i]
+        if let id = jsonObj["id"] as? String{
+            db.collection("products").document(id).setData(jsonObj, merge : true)
+        }
+        
+        if i % 1000 == 0 {
+            print("########## IN PROGRESS ########## --- \(i)\n")
+        }
+        
+        if i == 9000 { return }
+        
+        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: false) { (timer) in
+            self.pushIndex(i: i+1)
+        }
+    }
+    
     func testJsonToDB(){
+//        db.collection("products").getDocuments { (snapshot, error) in
+//            print(snapshot?.count)
+//        }
+//        return
+        
         var json : JSON = []
         //let storageRef = storage.reference()
         if let path = Bundle.main.path(forResource: "myjsonfile", ofType: "json"){
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 json = JSON(data: data)
+                
+                if let array = json.arrayObject as? [[String:Any]]{
+                    dbArray = array
+                    pushIndex(i: 0)
+                    return
+                }
                 
                 var count = 0
                 for obj in json.arrayObject ?? []{
@@ -94,17 +125,16 @@ class ViewController: UIViewController {
 //                        }
 //
                         if let id = jsonObj["id"] as? String{
+//                            if id == "5000112554359"{
+//                                print(jsonObj)
+//                            }
                             db.collection("products").document(id).setData(jsonObj, merge : true)
                         }
                         
                         count += 1
-                        
-                        if count % 1000 == 0 {
-                            print(count)
-                            print(jsonObj)
-                            print("########## IN PROGRESS ########## \n")
+                        if count % 10000 == 0 {
+                            print("########## IN PROGRESS ########## --- \(count)\n")
                         }
-                        
                     }
                 }
                 

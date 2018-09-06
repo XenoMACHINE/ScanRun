@@ -12,7 +12,12 @@ import Alamofire
 
 class ScanViewController: UIViewController {
     
+    @IBOutlet weak var targetView: UIView!
+    @IBOutlet weak var globalView: UIView!
     @IBOutlet var messageLabel:UILabel!
+    @IBOutlet weak var productView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var brandLabel: UILabel!
     
     var captureSession = AVCaptureSession()
     
@@ -68,14 +73,14 @@ class ScanViewController: UIViewController {
         // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame = view.layer.bounds
-        view.layer.addSublayer(videoPreviewLayer!)
+        videoPreviewLayer?.frame = globalView.layer.bounds
+        globalView.layer.addSublayer(videoPreviewLayer!)
         
         // Start video capture.
         captureSession.startRunning()
         
         // Move the message label and top bar to the front
-        view.bringSubview(toFront: messageLabel)
+        //view.bringSubview(toFront: messageLabel)
         
         // Initialize QR Code Frame to highlight the QR code
         qrCodeFrameView = UIView()
@@ -83,8 +88,8 @@ class ScanViewController: UIViewController {
         if let qrCodeFrameView = qrCodeFrameView {
             qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
             qrCodeFrameView.layer.borderWidth = 2
-            view.addSubview(qrCodeFrameView)
-            view.bringSubview(toFront: qrCodeFrameView)
+            globalView.addSubview(qrCodeFrameView)
+            globalView.bringSubview(toFront: qrCodeFrameView)
         }
     }
     
@@ -94,16 +99,36 @@ class ScanViewController: UIViewController {
     }
     
     func getProduct(ean : String){
+        NiceActivityIndicatorBuilder()
+            .setSize(100)
+            .setType(.pacman)
+            .setColor(.white)
+            .build()
+            .startAnimating(self.globalView)
+        
         let url = "https://us-central1-scanrun-5f26e.cloudfunctions.net/api/getProduct/" + ean
         let headers : HTTPHeaders = ["Authorization":"Bearer \(UserManager.shared.token ?? "")"]
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            NiceActivityIndicator().stopAnimating(self.globalView)
             switch response.result {
             case .success:
-                print(response)
+                if let json = response.result.value as? [String:Any]{
+                    self.productView.isHidden = false
+                    if let title = json["name"] as? String{
+                        self.titleLabel.text = title
+                    }
+                    if let brand = json["brand"] as? String{
+                        self.brandLabel.text = brand
+                    }
+                    self.brandLabel.text = "\(json)"
+                }
+                //self.dismiss(animated: true, completion: nil)
                 break
                 
             case .failure(let error):
                 print(error)
+                //TODO formulaire
+                self.showAlert(title: "Produit introuvable", message: "Donnez nous les informations de ce produit !")
                 break
             }
         }
@@ -134,6 +159,9 @@ class ScanViewController: UIViewController {
         present(alertPrompt, animated: true, completion: nil)
     }
     
+    @IBAction func onClose(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
@@ -142,7 +170,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No QR code is detected"
+            messageLabel.text = "No code is detected"
             return
         }
         
@@ -155,9 +183,11 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil, let ean = metadataObj.stringValue  {
-                launchApp(decodedURL: ean)
+                //launchApp(decodedURL: ean)
                 getProduct(ean: ean)
-                messageLabel.text = metadataObj.stringValue
+                //messageLabel.text = metadataObj.stringValue
+                messageLabel.text = "Produit detécté !"
+                messageLabel.backgroundColor = UIColor.green
                 captureSession.stopRunning()
             }
         }
