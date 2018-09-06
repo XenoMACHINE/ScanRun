@@ -84,15 +84,15 @@ class ScanViewController: UIViewController {
         // Move the message label and top bar to the front
         //view.bringSubview(toFront: messageLabel)
         
-        // Initialize QR Code Frame to highlight the QR code
-        qrCodeFrameView = UIView()
-        
-        if let qrCodeFrameView = qrCodeFrameView {
-            qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-            qrCodeFrameView.layer.borderWidth = 2
-            globalView.addSubview(qrCodeFrameView)
-            globalView.bringSubview(toFront: qrCodeFrameView)
-        }
+//        // Initialize QR Code Frame to highlight the QR code
+//        qrCodeFrameView = UIView()
+//
+//        if let qrCodeFrameView = qrCodeFrameView {
+//            qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+//            qrCodeFrameView.layer.borderWidth = 2
+//            globalView.addSubview(qrCodeFrameView)
+//            globalView.bringSubview(toFront: qrCodeFrameView)
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -163,7 +163,16 @@ class ScanViewController: UIViewController {
             case .failure(let error):
                 print(error)
                 //TODO formulaire
-                self.showAlert(title: "Produit introuvable", message: "Donnez nous les informations de ce produit !")
+                let addProductAction = UIAlertAction(title: "Ajouter le produit", style: .default, handler: { (action) in
+                    
+                })
+                let rescanAction = UIAlertAction(title: "Scanner un autre produit", style: .cancel, handler: { (action) in
+                    self.messageLabel.text = "Scannez le produit"
+                    self.messageLabel.backgroundColor = UIColor.lightGray
+                    self.captureSession.startRunning()
+                })
+                
+                self.showAlert(title: "Produit introuvable", message: "Donnez nous les informations de ce produit !", actions: [addProductAction,rescanAction])
                 break
             }
         }
@@ -205,7 +214,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No code is detected"
+            messageLabel.text = "Scannez le produit"
             return
         }
         

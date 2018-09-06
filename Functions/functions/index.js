@@ -118,8 +118,9 @@ function findInOpenFoodFacts(ean, res){
                         brand: product.brands || ""
                     };
                     db.collection('products').doc(ean).set(post);
+                    return res.send(post);
                 }
-                return res.send(post);
+                return res.send(body);
             }else {
                 console.log("OPEN FOOD don't find");
                 findInUpcItem(ean, res);
