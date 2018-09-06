@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -163,6 +164,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBG-h5-zgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="568.79999999999995" y="1255.3223388305848"/>
+        </scene>
+        <!--Duel View Controller-->
+        <scene sceneID="4c5-jz-1G3">
+            <objects>
+                <viewController storyboardIdentifier="DuelViewController" id="ukc-zR-KH9" customClass="DuelViewController" customModule="ScanRun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3mE-Qx-r87">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qui veux tu défier ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qy-2o-92e">
+                                <rect key="frame" x="0.0" y="28" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.89682155789364515" green="0.8924890865994729" blue="0.90115402918781728" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ngK-p9-ayo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9yC-cn-t8l">
+                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="HSS-DM-0I1" customClass="FriendCell" customModule="ScanRun" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HSS-DM-0I1" id="1ah-b3-h2U">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmS-gO-r65">
+                                                    <rect key="frame" x="23" y="29" width="38" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YmS-gO-r65" firstAttribute="leading" secondItem="1ah-b3-h2U" secondAttribute="leadingMargin" constant="8" id="VcW-SZ-6LT"/>
+                                                <constraint firstItem="YmS-gO-r65" firstAttribute="centerY" secondItem="1ah-b3-h2U" secondAttribute="centerY" id="jqE-oe-xao"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="YmS-gO-r65" id="wbP-UR-TMF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ukc-zR-KH9" id="375-L9-kjH"/>
+                                    <outlet property="delegate" destination="ukc-zR-KH9" id="odR-PF-fBv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9yC-cn-t8l" firstAttribute="top" secondItem="6qy-2o-92e" secondAttribute="bottom" id="2k1-ec-b7z"/>
+                            <constraint firstItem="9yC-cn-t8l" firstAttribute="leading" secondItem="PWA-tm-Neb" secondAttribute="leading" id="8ab-Zw-fP6"/>
+                            <constraint firstItem="6qy-2o-92e" firstAttribute="top" secondItem="PWA-tm-Neb" secondAttribute="top" constant="8" id="P8G-GG-z01"/>
+                            <constraint firstItem="PWA-tm-Neb" firstAttribute="trailing" secondItem="9yC-cn-t8l" secondAttribute="trailing" id="fcF-iN-yav"/>
+                            <constraint firstItem="PWA-tm-Neb" firstAttribute="trailing" secondItem="6qy-2o-92e" secondAttribute="trailing" id="hgZ-zg-7vY"/>
+                            <constraint firstItem="6qy-2o-92e" firstAttribute="leading" secondItem="PWA-tm-Neb" secondAttribute="leading" id="l5T-o0-Tm2"/>
+                            <constraint firstItem="9yC-cn-t8l" firstAttribute="bottom" secondItem="PWA-tm-Neb" secondAttribute="bottom" id="wnH-Om-txt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PWA-tm-Neb"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="9yC-cn-t8l" id="1ed-lq-MMS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lF-WD-muu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1509.5999999999999" y="1259.8200899550227"/>
         </scene>
         <!--Scan View Controller-->
         <scene sceneID="YRJ-Vo-b8O">
@@ -324,7 +397,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onClose:" destination="xyt-N5-1lM" eventType="touchUpInside" id="BkC-b1-zS4"/>
+                                            <action selector="onValidate:" destination="xyt-N5-1lM" eventType="touchUpInside" id="oKf-vW-Raj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-Pu-VCX">

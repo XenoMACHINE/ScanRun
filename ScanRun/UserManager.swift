@@ -15,8 +15,10 @@ class UserManager: NSObject {
     
     var token : String?
     
+    var userId : String?
+    
     func setToken(){
-        
+        self.userId = Auth.auth().currentUser?.uid
         Auth.auth().currentUser?.getIDToken(completion: { (token, error) in
             self.token = token
         })

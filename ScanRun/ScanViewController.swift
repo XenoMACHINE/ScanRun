@@ -224,6 +224,16 @@ class ScanViewController: UIViewController {
         reScan()
     }
     
+    @IBAction func onValidate(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let duelVC = storyBoard.instantiateViewController(withIdentifier: "DuelViewController") as! DuelViewController
+        //self.self.presentingViewController?.navigationController?.pushViewController(duelVC, animated: true)
+        //let tmp = self
+        self.present(duelVC, animated: true) {
+            //tmp.dismiss(animated: false)
+        }
+    }
+    
     @IBAction func onClose(_ sender: Any) {
         self.dismiss(animated: true)
     }
