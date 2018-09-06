@@ -116,6 +116,15 @@ class ScanViewController: UIViewController {
             case .success:
                 if let json = response.result.value as? [String:Any]{
                     self.productView.isHidden = false
+                    self.imageProduct.image = nil
+                    
+                    NiceActivityIndicatorBuilder()
+                    .setSize(100)
+                    .setType(.ballPulse)
+                    .setColor(.white)
+                    .build()
+                    .startAnimating(self.imageProduct)
+                    
                     if let title = json["name"] as? String{
                         self.titleLabel.text = title.uppercased()
                     }
@@ -149,6 +158,7 @@ class ScanViewController: UIViewController {
                             // When from background thread, UI needs to be updated on main_queue
                             DispatchQueue.main.async {
                                 let imageDef = UIImage(data: imageData as Data)
+                                NiceActivityIndicator().stopAnimating(self.imageProduct)
                                 self.imageProduct.image = imageDef
                                 self.imageProduct.contentMode = UIViewContentMode.scaleAspectFit
                             }
