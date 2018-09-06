@@ -18,6 +18,8 @@ class ScanViewController: UIViewController {
     @IBOutlet weak var productView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var imageProduct: UIImageView!
     
     var captureSession = AVCaptureSession()
     
@@ -115,12 +117,45 @@ class ScanViewController: UIViewController {
                 if let json = response.result.value as? [String:Any]{
                     self.productView.isHidden = false
                     if let title = json["name"] as? String{
-                        self.titleLabel.text = title
+                        self.titleLabel.text = title.uppercased()
                     }
                     if let brand = json["brand"] as? String{
-                        self.brandLabel.text = brand
+                        if brand != "" {
+                            self.brandLabel.text = "Marque : " + brand
+                        } else {
+                            self.brandLabel.text = ""
+                        }
+                    } else {
+                        self.brandLabel.text = ""
                     }
-                    self.brandLabel.text = "\(json)"
+                    if let quantity = json["quantity"] as? String{
+                        if quantity != "" {
+                            self.quantityLabel.text = "Quantité : " + quantity
+                        } else {
+                            self.quantityLabel.text = ""
+                        }
+                    } else {
+                        self.quantityLabel.text = ""
+                    }
+                    if let image = json["image"] as? String{
+                        
+                        let imageUrlString = image
+                        let imageUrl:URL = URL(string: imageUrlString)!
+                        
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            
+                            let imageData:NSData = NSData(contentsOf: imageUrl)!
+                            
+                            // When from background thread, UI needs to be updated on main_queue
+                            DispatchQueue.main.async {
+                                let imageDef = UIImage(data: imageData as Data)
+                                self.imageProduct.image = imageDef
+                                self.imageProduct.contentMode = UIViewContentMode.scaleAspectFit
+                            }
+                        }
+
+                    }
+                    
                 }
                 //self.dismiss(animated: true, completion: nil)
                 break
