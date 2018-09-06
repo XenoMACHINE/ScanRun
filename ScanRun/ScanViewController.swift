@@ -82,15 +82,15 @@ class ScanViewController: UIViewController {
         // Move the message label and top bar to the front
         //view.bringSubview(toFront: messageLabel)
         
-        // Initialize QR Code Frame to highlight the QR code
-        qrCodeFrameView = UIView()
-        
-        if let qrCodeFrameView = qrCodeFrameView {
-            qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-            qrCodeFrameView.layer.borderWidth = 2
-            globalView.addSubview(qrCodeFrameView)
-            globalView.bringSubview(toFront: qrCodeFrameView)
-        }
+//        // Initialize QR Code Frame to highlight the QR code
+//        qrCodeFrameView = UIView()
+//
+//        if let qrCodeFrameView = qrCodeFrameView {
+//            qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+//            qrCodeFrameView.layer.borderWidth = 2
+//            globalView.addSubview(qrCodeFrameView)
+//            globalView.bringSubview(toFront: qrCodeFrameView)
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,14 +113,26 @@ class ScanViewController: UIViewController {
             switch response.result {
             case .success:
                 if let json = response.result.value as? [String:Any]{
-                    self.productView.isHidden = false
-                    if let title = json["name"] as? String{
-                        self.titleLabel.text = title
-                    }
-                    if let brand = json["brand"] as? String{
-                        self.brandLabel.text = brand
-                    }
-                    self.brandLabel.text = "\(json)"
+                    //self.productView.isHidden = false
+//                    if let title = json["name"] as? String{
+//                        self.titleLabel.text = title
+//                    }
+//                    if let brand = json["brand"] as? String{
+//                        self.brandLabel.text = brand
+//                    }
+//                    self.brandLabel.text = "\(json)"
+//
+                    let title = json["name"] as? String ?? "Produit inconnu"
+                    
+                    let okAction = UIAlertAction(title: "Valider", style: .cancel, handler: { (action) in
+                        self.dismiss(animated: true)
+                    })
+                    let rescanAction = UIAlertAction(title: "Scanner un autre produit", style: .default, handler: { (action) in
+                        self.messageLabel.text = "Scannez le produit"
+                        self.messageLabel.backgroundColor = UIColor.lightGray
+                        self.captureSession.startRunning()
+                    })
+                    self.showAlert(title: title, message: "\(json)", actions: [okAction, rescanAction])
                 }
                 //self.dismiss(animated: true, completion: nil)
                 break
@@ -128,7 +140,16 @@ class ScanViewController: UIViewController {
             case .failure(let error):
                 print(error)
                 //TODO formulaire
-                self.showAlert(title: "Produit introuvable", message: "Donnez nous les informations de ce produit !")
+                let addProductAction = UIAlertAction(title: "Ajouter le produit", style: .default, handler: { (action) in
+                    
+                })
+                let rescanAction = UIAlertAction(title: "Scanner un autre produit", style: .cancel, handler: { (action) in
+                    self.messageLabel.text = "Scannez le produit"
+                    self.messageLabel.backgroundColor = UIColor.lightGray
+                    self.captureSession.startRunning()
+                })
+                
+                self.showAlert(title: "Produit introuvable", message: "Donnez nous les informations de ce produit !", actions: [addProductAction,rescanAction])
                 break
             }
         }
@@ -170,7 +191,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No code is detected"
+            messageLabel.text = "Scannez le produit"
             return
         }
         
