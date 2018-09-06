@@ -27,20 +27,28 @@ class ViewController: UIViewController {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         //testFirestore()
-        Auth.auth().signIn(withEmail: "test@test.fr", password: "azerty12") { (result, error) in
-            result?.user.getIDToken(completion: { (idToken, error) in
-                if let token = idToken{
-                    UserManager.shared.token = token
-                    //self.testJsonToDB()
-                    //self.testCallFirebaseFunction()
-                }
-            })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Auth.auth().currentUser == nil{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let signInSingUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignInSingUpViewController") as! SignInSingUpViewController
+            self.present(signInSingUpViewController, animated: true)
+        }else{
+            UserManager.shared.setToken()
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onDisconnect(_ sender: Any) {
+        try? Auth.auth().signOut()
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let signInSingUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignInSingUpViewController") as! SignInSingUpViewController
+        self.present(signInSingUpViewController, animated: true)
     }
     
     @IBAction func goToScan(segue: UIStoryboardSegue) {

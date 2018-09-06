@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UserManager: NSObject {
 
     static let shared = UserManager()
     
     var token : String?
+    
+    func setToken(){
+        
+        Auth.auth().currentUser?.getIDToken(completion: { (token, error) in
+            self.token = token
+        })
+    }
 }
