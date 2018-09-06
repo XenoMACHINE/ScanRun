@@ -242,7 +242,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
                 getProduct(ean: ean)
                 //messageLabel.text = metadataObj.stringValue
                 messageLabel.text = "Produit detécté !"
-                messageLabel.backgroundColor = UIColor.green
+                messageLabel.backgroundColor = UIColor(red:0.16, green:0.69, blue:0.10, alpha:0.9)
                 captureSession.stopRunning()
             }
         }
