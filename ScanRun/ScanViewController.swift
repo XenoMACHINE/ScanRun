@@ -126,7 +126,13 @@ class ScanViewController: UIViewController {
                     .startAnimating(self.imageProduct)
                     
                     if let title = json["name"] as? String{
-                        self.titleLabel.text = title.uppercased()
+                        if title != "" {
+                            self.titleLabel.text = title.uppercased()
+                        } else {
+                            self.titleLabel.text = ""
+                        }
+                    } else {
+                        self.titleLabel.text = ""
                     }
                     if let brand = json["brand"] as? String{
                         if brand != "" {
