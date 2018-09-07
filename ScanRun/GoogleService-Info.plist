@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1068063279277-l4okcb38lei0frg8ipiv0es07o9dkcc2.apps.googleusercontent.com</string>
+	<string>1068063279277-tksill0i83sh00rndvlknpk63m4fvhjg.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1068063279277-l4okcb38lei0frg8ipiv0es07o9dkcc2</string>
+	<string>com.googleusercontent.apps.1068063279277-tksill0i83sh00rndvlknpk63m4fvhjg</string>
 	<key>API_KEY</key>
 	<string>AIzaSyB4qoZ6Cg9KM1mM8DDw4UwMtUFua462bbE</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.goot.ScanRun</string>
+	<string>com.esgi.ScanRun</string>
 	<key>PROJECT_ID</key>
 	<string>scanrun-5f26e</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1068063279277:ios:0da8622970c4326f</string>
+	<string>1:1068063279277:ios:89a3941e359dc339</string>
 	<key>DATABASE_URL</key>
 	<string>https://scanrun-5f26e.firebaseio.com</string>
 </dict>

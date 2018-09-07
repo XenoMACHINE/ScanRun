@@ -33,6 +33,9 @@ PODS:
   - Firebase/Functions (5.7.0):
     - Firebase/CoreOnly
     - FirebaseFunctions (= 2.1.0)
+  - Firebase/Messaging (5.7.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.1.1)
   - Firebase/Storage (5.7.0):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.1)
@@ -77,6 +80,11 @@ PODS:
   - FirebaseInstanceID (3.2.1):
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.2)
+  - FirebaseMessaging (3.1.1):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleUtilities/Reachability (~> 5.2)
+    - Protobuf (~> 3.1)
   - FirebaseStorage (3.0.1):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -194,6 +202,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - Firebase/Functions
+  - Firebase/Messaging
   - Firebase/Storage
   - FirebaseUI
   - NVActivityIndicatorView
@@ -214,6 +223,7 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseFunctions
     - FirebaseInstanceID
+    - FirebaseMessaging
     - FirebaseStorage
     - FirebaseUI
     - GoogleAppMeasurement
@@ -249,6 +259,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 7eec93809ad61e7ebe303089c5cc5efa63424b72
   FirebaseFunctions: 0cb3bc0bbeac1daf6fea378a1064ff7f484e4c4e
   FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
+  FirebaseMessaging: 698c94dd1e3436346c29bb9c85dcdca4c4a0c30b
   FirebaseStorage: 43f823b96b72a08539eba21a7de043348a69d4c6
   FirebaseUI: 9dfa423b6f1b73737ae8ab62692c1c0a8886186d
   GoogleAppMeasurement: f7507b39b70ad0bd80b3d81518b2f43868974307
@@ -269,6 +280,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 049a0c15e30caca043aa484a64e2837228b4f09e
+PODFILE CHECKSUM: 7f3ea7d4bef5023293e99c82271bfa1db07f524b
 
 COCOAPODS: 1.5.3

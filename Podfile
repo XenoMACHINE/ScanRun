@@ -10,7 +10,8 @@ target 'ScanRun' do
   pod 'Firebase/Firestore'
   pod 'FirebaseUI'
   pod 'Firebase/Storage'
-  pod 'Firebase/Functions'
+  pod 'Firebase/Functions’
+  pod 'Firebase/Messaging'
   pod 'Alamofire', '~> 4.7'
   pod 'NVActivityIndicatorView'
 

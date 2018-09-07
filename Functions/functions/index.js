@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const request = require('request');
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 
@@ -31,7 +32,6 @@ exports.autoDeleteUser = functions.auth.user().onDelete((user) => {
   console.log("User [" + user.email + ", " + user.uid + "] deleted");
   return true
 });
-
 
 //Callable from app
 /*exports.getProduct = functions.https.onCall((data, context) => {
@@ -172,12 +172,31 @@ let getProduct = (req, res) => {
     //findInOpenFoodFacts(ean, res);
 };
 
+let sendNotif = (req, res) => {
+
+    const idTargetUser = req.body.id;
+    const username = req.body.username;// || "Un joueur";
+    db.collection("users").doc(idTargetUser).get()
+        .then(doc => {
+            console.log(doc.data())
+            const FCMToken = doc.data()["FCMToken"];
+            const payload = {
+                notification: {
+                    title: username + " vous défie !",
+                    body: "Ouvrez l'application pour voir le défie !"
+                }
+            };
+            admin.messaging().sendToDevice(FCMToken, payload);
+        });
+}
+
 //Config
 app.use(cors({ origin: true }));
 app.use(authenticate);
 
 //Roots
 app.get('/getProduct/:ean', getProduct);
+app.post('/sendNotif', bodyParser.json(), sendNotif);
 
 //Deploy
 exports.api = functions.https.onRequest(app);

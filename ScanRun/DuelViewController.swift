@@ -13,6 +13,7 @@ class DuelViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     lazy var db = Firestore.firestore()
+    var idProduct = ""
     var friends : [User] = []
 
     override func viewDidLoad() {
@@ -68,6 +69,11 @@ extension DuelViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let friend = friends[indexPath.row]
+        db.collection("duels").addDocument(data: ["closed":false,
+                                                  "idProduct": idProduct,
+                                                  "time":3600,
+                                                  "userLaunch":UserManager.shared.userId ?? "",
+                                                  "userTarget":friend.id ?? ""])
         tableView.reloadData()
         self.dismiss(animated: true)
     }

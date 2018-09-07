@@ -37,6 +37,8 @@ class ViewController: UIViewController {
         }else{
             UserManager.shared.setToken()
         }
+        
+        waitDuel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +58,21 @@ class ViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "scan") as! ScanViewController
         //self.navigationController?.pushViewController(nextViewController, animated: true)
         self.present(nextViewController, animated: true)
+    }
+    
+    func waitDuel(){
+        if let userId = UserManager.shared.userId{
+            db.collection("duels")
+                .whereField("userTarger", isEqualTo: userId)
+                .whereField("closed", isEqualTo: false).addSnapshotListener({ (snapshot, error) in
+                    let validAction = UIAlertAction(title: "Voir", style: .cancel, handler: { (action) in
+                        print("Go to duel")
+                    })
+                    
+                    self.showAlert(title: "Vous venez de recevoir un duel !", message: "Thomas vous défie !", actions: [validAction])
+                })
+        }
+
     }
 
     func testFirestore(){
