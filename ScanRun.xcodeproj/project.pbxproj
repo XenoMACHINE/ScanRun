@@ -10,7 +10,6 @@
 		45849C03213FE978005AB34A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45849C02213FE978005AB34A /* ScanViewController.swift */; };
 		AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B7564214025A2008F5A39 /* UserManager.swift */; };
 		AD5B7567214083ED008F5A39 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */; };
-		AD5B756921408D1F008F5A39 /* myjsonfile.json in Resources */ = {isa = PBXBuildFile; fileRef = AD5B756821408D1F008F5A39 /* myjsonfile.json */; };
 		AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */; };
 		AD80F4372141CA7E006B5B5D /* SignInSingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */; };
 		AD80F4392141D487006B5B5D /* GlobalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F4382141D487006B5B5D /* GlobalButton.swift */; };
@@ -33,7 +32,6 @@
 		64DB659265CEC5945BDAA98F /* Pods_ScanRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5B7564214025A2008F5A39 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		AD5B756821408D1F008F5A39 /* myjsonfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = myjsonfile.json; sourceTree = "<group>"; };
 		AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSingUpViewController.swift; sourceTree = "<group>"; };
 		AD80F4382141D487006B5B5D /* GlobalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalButton.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 				ADBA5AF9213F150A007ABEF5 /* Assets.xcassets */,
 				AD5B7564214025A2008F5A39 /* UserManager.swift */,
 				AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */,
-				AD5B756821408D1F008F5A39 /* myjsonfile.json */,
 				AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */,
 				AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */,
 				AD80F4382141D487006B5B5D /* GlobalButton.swift */,
@@ -193,7 +190,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD5B756921408D1F008F5A39 /* myjsonfile.json in Resources */,
 				ADBA5AFD213F150A007ABEF5 /* LaunchScreen.storyboard in Resources */,
 				ADBA5B05213F1659007ABEF5 /* GoogleService-Info.plist in Resources */,
 				ADBA5AFA213F150A007ABEF5 /* Assets.xcassets in Resources */,

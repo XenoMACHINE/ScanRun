@@ -117,6 +117,12 @@ function findInOpenFoodFacts(ean, res){
                         name: product.product_name || product_name_fr || product.generic_name_fr || product.generic_name || "",
                         brand: product.brands || ""
                     };
+                    if (ean.length == 13) {
+                        let tmp = ean.slice(0, 3) + "/" + ean.slice(3, 6) + "/" + ean.slice(6, 9) + "/" + ean.slice(9, 13);
+                        url = "https://static.openfoodfacts.org/images/products/" + tmp + "/1.400.jpg"
+                        post["image"] = url;
+                    }
+                    console.log(post);
                     db.collection('products').doc(ean).set(post);
                     return res.send(post);
                 }
@@ -196,7 +202,7 @@ app.use(authenticate);
 
 //Roots
 app.get('/getProduct/:ean', getProduct);
-app.post('/sendNotif', bodyParser.json(), sendNotif);
+//app.post('/sendNotif', bodyParser.json(), sendNotif);
 
 //Deploy
 exports.api = functions.https.onRequest(app);
