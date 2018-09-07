@@ -71,7 +71,7 @@ class ViewController: UIViewController {
                                 print("Go to duel")
                             })
                             
-                            self.showAlert(title: "Vous venez de recevoir un duel !", message: "Thomas vous défie !", actions: [validAction])
+                            self.showAlert(title: "Vous venez de recevoir un duel !", message: "Alex vous défie !", actions: [validAction])
                         }
                     }
                 })

@@ -22,7 +22,7 @@ class ScanViewController: UIViewController {
     @IBOutlet weak var imageProduct: UIImageView!
     
     var captureSession = AVCaptureSession()
-    
+    var idProduct = ""
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     
@@ -227,6 +227,7 @@ class ScanViewController: UIViewController {
     @IBAction func onValidate(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let duelVC = storyBoard.instantiateViewController(withIdentifier: "DuelViewController") as! DuelViewController
+        duelVC.idProduct = self.idProduct
         //self.self.presentingViewController?.navigationController?.pushViewController(duelVC, animated: true)
         //let tmp = self
         self.present(duelVC, animated: true) {
@@ -259,6 +260,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             
             if metadataObj.stringValue != nil, let ean = metadataObj.stringValue  {
                 //launchApp(decodedURL: ean)
+                self.idProduct = ean
                 getProduct(ean: ean)
                 //messageLabel.text = metadataObj.stringValue
                 messageLabel.text = "Produit detécté !"
