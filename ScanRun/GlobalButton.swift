@@ -15,7 +15,7 @@ class GlobalButton: UIButton {
     var tmpText : String?
     
     override func awakeFromNib() {
-        self.layer.cornerRadius = self.bounds.height / 2
+        self.layer.cornerRadius = self.bounds.height / 4
         
         if activityIndicator == nil {
             activityIndicator = createActivityIndicator()

@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jed-63-QmK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jed-63-QmK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -26,19 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-MC-KvI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-MC-KvI" customClass="GlobalButton" customModule="ScanRun" customModuleProvider="target">
                                 <rect key="frame" x="137" y="308" width="100" height="50"/>
-                                <color key="backgroundColor" red="0.24903064338980374" green="0.04801628267426572" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.031372549019607843" green="0.26666666666666666" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="VdE-mB-0gA"/>
                                     <constraint firstAttribute="height" constant="50" id="sZl-oY-QhL"/>
                                 </constraints>
-                                <state key="normal" title="SCAN">
+                                <state key="normal" title="SCANNER">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -46,7 +41,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9yf-MC-KvI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YXe-r4-6B2"/>
                             <constraint firstItem="9yf-MC-KvI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="adX-Ny-o9l"/>
@@ -75,17 +70,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPS-em-zca" customClass="GlobalButton" customModule="ScanRun" customModuleProvider="target">
-                                <rect key="frame" x="12" y="310.5" width="351" height="50"/>
-                                <color key="backgroundColor" red="0.2490306434" green="0.04801628267" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="12" y="330.5" width="351" height="50"/>
+                                <color key="backgroundColor" red="0.031372549019607843" green="0.26666666666666666" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5Tb-oV-YLf"/>
                                 </constraints>
-                                <state key="normal" title="Se connecter">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="SE CONNECTER">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -127,11 +123,21 @@
                                     <action selector="onClose:" destination="xyt-N5-1lM" eventType="touchUpInside" id="U1n-VQ-4tm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDd-wa-2XE">
-                                <rect key="frame" x="155" y="629" width="64" height="30"/>
-                                <state key="normal" title="S'inscrire">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDd-wa-2XE" customClass="GlobalButton" customModule="ScanRun" customModuleProvider="target">
+                                <rect key="frame" x="12" y="390.5" width="351" height="50"/>
+                                <color key="backgroundColor" red="0.45882352941176469" green="0.66274509803921566" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dWs-zP-iZo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="S'INSCRIRE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onChangeMode:" destination="Lbs-WH-nky" eventType="touchUpInside" id="yrd-VE-fMJ"/>
                                 </connections>
@@ -142,11 +148,13 @@
                             <constraint firstItem="K1O-BF-uwu" firstAttribute="top" secondItem="e8O-tY-t48" secondAttribute="top" id="1sq-mD-pJ3"/>
                             <constraint firstItem="iPS-em-zca" firstAttribute="leading" secondItem="e8O-tY-t48" secondAttribute="leading" constant="12" id="2G6-03-p6K"/>
                             <constraint firstItem="c1h-SF-OGp" firstAttribute="centerY" secondItem="Qi0-nx-2Uy" secondAttribute="centerY" constant="-100" id="8yz-Dt-87L"/>
+                            <constraint firstItem="e8O-tY-t48" firstAttribute="trailing" secondItem="fDd-wa-2XE" secondAttribute="trailing" constant="12" id="ClA-OY-4Mg"/>
                             <constraint firstItem="fDd-wa-2XE" firstAttribute="centerX" secondItem="Qi0-nx-2Uy" secondAttribute="centerX" id="EpC-V8-Aqn"/>
+                            <constraint firstItem="fDd-wa-2XE" firstAttribute="top" secondItem="iPS-em-zca" secondAttribute="bottom" constant="10" id="N2d-Ni-1Do"/>
                             <constraint firstItem="iPS-em-zca" firstAttribute="centerX" secondItem="Qi0-nx-2Uy" secondAttribute="centerX" id="V9k-Ol-859"/>
                             <constraint firstItem="c1h-SF-OGp" firstAttribute="leading" secondItem="e8O-tY-t48" secondAttribute="leading" constant="12" id="aRw-ec-6aQ"/>
-                            <constraint firstItem="iPS-em-zca" firstAttribute="top" secondItem="c1h-SF-OGp" secondAttribute="bottom" constant="20" id="cAW-Lp-lhC"/>
-                            <constraint firstItem="e8O-tY-t48" firstAttribute="bottom" secondItem="fDd-wa-2XE" secondAttribute="bottom" constant="8" id="fy0-Zo-qfL"/>
+                            <constraint firstItem="iPS-em-zca" firstAttribute="top" secondItem="c1h-SF-OGp" secondAttribute="bottom" constant="40" id="cAW-Lp-lhC"/>
+                            <constraint firstItem="fDd-wa-2XE" firstAttribute="leading" secondItem="e8O-tY-t48" secondAttribute="leading" constant="12" id="mt5-5M-nxZ"/>
                             <constraint firstItem="e8O-tY-t48" firstAttribute="trailing" secondItem="c1h-SF-OGp" secondAttribute="trailing" constant="12" id="nJ0-Gu-Tg5"/>
                             <constraint firstItem="K1O-BF-uwu" firstAttribute="leading" secondItem="e8O-tY-t48" secondAttribute="leading" constant="25" id="uJL-Yy-p8o"/>
                             <constraint firstItem="e8O-tY-t48" firstAttribute="trailing" secondItem="iPS-em-zca" secondAttribute="trailing" constant="12" id="ykF-nr-QTB"/>
@@ -173,14 +181,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qui veux tu défier ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qy-2o-92e">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUI VEUX-TU DÉFIER ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qy-2o-92e">
                                 <rect key="frame" x="0.0" y="28" width="375" height="40"/>
-                                <color key="backgroundColor" red="0.89682155789364515" green="0.8924890865994729" blue="0.90115402918781728" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.031372549019607843" green="0.26666666666666666" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ngK-p9-ayo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9yC-cn-t8l">
@@ -358,7 +366,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view hidden="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDX-XZ-6EA">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDX-XZ-6EA">
                                 <rect key="frame" x="38" y="57" width="300" height="533.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlw-9d-bdb">
@@ -380,15 +388,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PPg-an-ARp">
-                                        <rect key="frame" x="15" y="138" width="270" height="255.5"/>
+                                        <rect key="frame" x="15" y="138" width="270" height="265.5"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-SF-bNy">
-                                        <rect key="frame" x="30" y="477.5" width="240" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-SF-bNy" customClass="GlobalButton" customModule="ScanRun" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="473.5" width="240" height="40"/>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.68627450980392157" blue="0.098039215686274508" alpha="0.89741967429577463" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="BBh-J4-Q1T"/>
+                                            <constraint firstAttribute="height" constant="40" id="BBh-J4-Q1T"/>
                                         </constraints>
-                                        <state key="normal" title="Valider">
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="VALIDER">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -400,13 +409,14 @@
                                             <action selector="onValidate:" destination="xyt-N5-1lM" eventType="touchUpInside" id="oKf-vW-Raj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-Pu-VCX">
-                                        <rect key="frame" x="30" y="421.5" width="240" height="36"/>
-                                        <color key="backgroundColor" red="0.16068379899999999" green="0.39491030948571426" blue="0.81212521849714292" alpha="0.89964148119999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-Pu-VCX" customClass="GlobalButton" customModule="ScanRun" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="423.5" width="240" height="40"/>
+                                        <color key="backgroundColor" red="0.031372549019607843" green="0.26666666666666666" blue="0.64313725490196072" alpha="0.89964148119999998" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="hJo-Ib-tVw"/>
+                                            <constraint firstAttribute="height" constant="40" id="hJo-Ib-tVw"/>
                                         </constraints>
-                                        <state key="normal" title="Scanner un autre produit">
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="SCANNER UN AUTRE PRODUIT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -422,6 +432,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.89964148116438358" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="XUZ-Pu-VCX" secondAttribute="trailing" constant="30" id="5c2-1v-Egn"/>
+                                    <constraint firstItem="XUZ-Pu-VCX" firstAttribute="top" secondItem="PPg-an-ARp" secondAttribute="bottom" constant="20" id="E2a-Ta-7z2"/>
                                     <constraint firstItem="Jlw-9d-bdb" firstAttribute="leading" secondItem="VDX-XZ-6EA" secondAttribute="leading" constant="8" id="FIr-d0-Ee8"/>
                                     <constraint firstItem="Ssq-Kt-IoC" firstAttribute="leading" secondItem="VDX-XZ-6EA" secondAttribute="leading" constant="8" id="FnX-Xb-cSy"/>
                                     <constraint firstItem="Ssq-Kt-IoC" firstAttribute="centerX" secondItem="VDX-XZ-6EA" secondAttribute="centerX" id="G3A-H7-9kg"/>
@@ -430,10 +441,9 @@
                                     <constraint firstAttribute="trailing" secondItem="0fd-SF-bNy" secondAttribute="trailing" constant="30" id="RPp-GG-Mmh"/>
                                     <constraint firstAttribute="trailing" secondItem="Ssq-Kt-IoC" secondAttribute="trailing" constant="8" id="TjB-ye-Rzs"/>
                                     <constraint firstItem="PPg-an-ARp" firstAttribute="top" secondItem="Ssq-Kt-IoC" secondAttribute="bottom" constant="20" id="WQO-xi-Hon"/>
-                                    <constraint firstItem="0fd-SF-bNy" firstAttribute="top" secondItem="XUZ-Pu-VCX" secondAttribute="bottom" constant="20" id="bPe-zt-Ue3"/>
+                                    <constraint firstItem="0fd-SF-bNy" firstAttribute="top" secondItem="XUZ-Pu-VCX" secondAttribute="bottom" constant="10" id="bPe-zt-Ue3"/>
                                     <constraint firstItem="AXp-2r-Izm" firstAttribute="centerX" secondItem="VDX-XZ-6EA" secondAttribute="centerX" id="cci-AK-EaO"/>
                                     <constraint firstItem="Ssq-Kt-IoC" firstAttribute="top" secondItem="AXp-2r-Izm" secondAttribute="bottom" constant="10" id="g2g-KX-3vp"/>
-                                    <constraint firstAttribute="bottom" secondItem="PPg-an-ARp" secondAttribute="bottom" constant="140" id="k8v-WP-qzN"/>
                                     <constraint firstItem="AXp-2r-Izm" firstAttribute="top" secondItem="Jlw-9d-bdb" secondAttribute="bottom" constant="30" id="kGU-tn-VnR"/>
                                     <constraint firstAttribute="trailing" secondItem="AXp-2r-Izm" secondAttribute="trailing" constant="8" id="kgZ-L0-SF8"/>
                                     <constraint firstAttribute="trailing" secondItem="PPg-an-ARp" secondAttribute="trailing" constant="15" id="ru5-fN-dQI"/>

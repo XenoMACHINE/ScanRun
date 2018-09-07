@@ -92,13 +92,13 @@ class SignInSingUpViewController: UIViewController {
     @IBAction func onChangeMode(_ sender: UIButton) {
         if mode == .signIn{
             mode = .signUp
-            connectBtn.setTitle("S'inscrire", for: .normal)
-            sender.setTitle("Se connecter", for: .normal)
+            connectBtn.setTitle("S'INSCRIRE", for: .normal)
+            sender.setTitle("SE CONNECTER", for: .normal)
             secondPasswordTf.isHidden = false
         }else{
             mode = .signIn
-            connectBtn.setTitle("Se connecter", for: .normal)
-            sender.setTitle("S'inscrire", for: .normal)
+            connectBtn.setTitle("SE CONNECTER", for: .normal)
+            sender.setTitle("S'INSCRIRE", for: .normal)
             secondPasswordTf.isHidden = true
         }
     }
