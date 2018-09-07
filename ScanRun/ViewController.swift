@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     func waitDuel(){
         if let userId = UserManager.shared.userId{
             db.collection("duels")
-                .whereField("userTarger", isEqualTo: userId)
+                .whereField("userTarget", isEqualTo: userId)
                 .whereField("closed", isEqualTo: false).addSnapshotListener({ (snapshot, error) in
                     let validAction = UIAlertAction(title: "Voir", style: .cancel, handler: { (action) in
                         print("Go to duel")
