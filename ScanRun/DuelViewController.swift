@@ -69,11 +69,20 @@ extension DuelViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let friend = friends[indexPath.row]
-        db.collection("duels").addDocument(data: ["closed":false,
-                                                  "idProduct": idProduct,
-                                                  "time":3600,
-                                                  "userLaunch":UserManager.shared.userId ?? "",
-                                                  "userTarget":friend.id ?? ""])
+        var ref: DocumentReference? = nil
+        ref = db.collection("duels").addDocument(data: [
+            "closed":false,
+            "idProduct": idProduct,
+            "time":3600,
+            "userLaunch":UserManager.shared.userId ?? "",
+            "userTarget":friend.id ?? ""
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
         tableView.reloadData()
         self.dismiss(animated: true)
     }

@@ -65,11 +65,15 @@ class ViewController: UIViewController {
             db.collection("duels")
                 .whereField("userTarget", isEqualTo: userId)
                 .whereField("closed", isEqualTo: false).addSnapshotListener({ (snapshot, error) in
-                    let validAction = UIAlertAction(title: "Voir", style: .cancel, handler: { (action) in
-                        print("Go to duel")
-                    })
-                    
-                    self.showAlert(title: "Vous venez de recevoir un duel !", message: "Thomas vous défie !", actions: [validAction])
+                    for snap in snapshot?.documents ?? []{
+                        if let userId = snap.data()["userLaunch"] as? String{
+                            let validAction = UIAlertAction(title: "Voir", style: .cancel, handler: { (action) in
+                                print("Go to duel")
+                            })
+                            
+                            self.showAlert(title: "Vous venez de recevoir un duel !", message: "Thomas vous défie !", actions: [validAction])
+                        }
+                    }
                 })
         }
 
