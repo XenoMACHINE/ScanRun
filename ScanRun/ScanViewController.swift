@@ -240,6 +240,8 @@ class ScanViewController: UIViewController {
     }
     
     @IBAction func onValidate(_ sender: Any) {
+        captureSession.startRunning()
+        productView.isHidden = true
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let duelVC = storyBoard.instantiateViewController(withIdentifier: "DuelViewController") as! DuelViewController
         duelVC.idProduct = self.idProduct
