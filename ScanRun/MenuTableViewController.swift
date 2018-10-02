@@ -22,10 +22,13 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let image = UIImage(named: "iconMenu") {
-            dataTable.append((menuData: .HOME, image: image))
-            dataTable.append((menuData: .SETTINGS, image: image))
-            dataTable.append((menuData: .DISCONNECTION, image: image))
+        if let iconHome = UIImage(named: "iconHome"),
+            let iconSettings = UIImage(named: "iconSettings"),
+            let iconDisconnection = UIImage(named: "iconDisconnection") {
+            
+            dataTable.append((menuData: .HOME, image: iconHome))
+            dataTable.append((menuData: .SETTINGS, image: iconSettings))
+            dataTable.append((menuData: .DISCONNECTION, image: iconDisconnection))
         }
         
     }

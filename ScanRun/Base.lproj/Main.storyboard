@@ -28,16 +28,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L19-Xo-red">
-                                            <rect key="frame" x="84" y="24.5" width="267" height="21"/>
+                                            <rect key="frame" x="68" y="24.5" width="283" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OBn-d3-O47">
-                                            <rect key="frame" x="24" y="15" width="40" height="40"/>
+                                            <rect key="frame" x="24" y="23" width="24" height="24"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="2nW-Ku-ckE"/>
-                                                <constraint firstAttribute="height" constant="40" id="8Wf-uo-dJG"/>
+                                                <constraint firstAttribute="width" constant="24" id="2nW-Ku-ckE"/>
+                                                <constraint firstAttribute="height" constant="24" id="8Wf-uo-dJG"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -95,14 +95,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanHome" translatesAutoresizingMaskIntoConstraints="NO" id="hjx-vI-Drf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <view alpha="0.88" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6df-52-n3t">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-MC-KvI" customClass="GlobalButton" customModule="ScanRun" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="308.5" width="100" height="50"/>
+                                <rect key="frame" x="62.5" y="308.5" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.031372549019607843" green="0.26666666666666666" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="VdE-mB-0gA"/>
+                                    <constraint firstAttribute="width" constant="250" id="VdE-mB-0gA"/>
                                     <constraint firstAttribute="height" constant="50" id="sZl-oY-QhL"/>
                                 </constraints>
-                                <state key="normal" title="SCANNER">
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="16"/>
+                                <state key="normal" title="SCANNER UN PRODUIT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -117,13 +125,21 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hjx-vI-Drf" secondAttribute="trailing" id="66C-CU-r3w"/>
+                            <constraint firstItem="hjx-vI-Drf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OLK-IT-TYG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hjx-vI-Drf" secondAttribute="bottom" id="YJH-2v-E51"/>
                             <constraint firstItem="9yf-MC-KvI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YXe-r4-6B2"/>
                             <constraint firstItem="9yf-MC-KvI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="adX-Ny-o9l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6df-52-n3t" secondAttribute="trailing" id="caW-gn-xBq"/>
+                            <constraint firstItem="6df-52-n3t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hXA-St-pDj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6df-52-n3t" secondAttribute="bottom" id="lVc-wv-nKj"/>
+                            <constraint firstItem="hjx-vI-Drf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qxI-V4-qsh"/>
+                            <constraint firstItem="6df-52-n3t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zpB-5b-E0G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VBN-SL-aXY">
-                        <barButtonItem key="leftBarButtonItem" image="iconMenu" style="plain" id="4pV-KK-N5Y">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="iconMenu" style="plain" id="4pV-KK-N5Y">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="onDisconnect:" destination="BYZ-38-t0r" id="mvI-Jg-C65"/>
@@ -610,6 +626,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconMenu" width="80" height="80"/>
+        <image name="iconMenu" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="scanHome" width="3648" height="5472"/>
     </resources>
 </document>

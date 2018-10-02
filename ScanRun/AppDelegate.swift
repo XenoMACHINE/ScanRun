@@ -42,14 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
+        Thread.sleep(forTimeInterval: 3.0)
+        
+        let colorView = UIView()
+        colorView.backgroundColor = UIColor.black
+        UITableViewCell.appearance().selectedBackgroundView = colorView
+        
         let attrs = [
-            NSAttributedStringKey.foregroundColor: UIColor.white
+            NSAttributedStringKey.foregroundColor: UIColor.white,
+            NSAttributedStringKey.font: UIFont(name: "Bodoni 72 Oldstyle", size: 20)
         ]
         
         UINavigationBar.appearance().barTintColor = UIColor(red:0.10, green:0.10, blue:0.10, alpha:1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = attrs
+        UINavigationBar.appearance().titleTextAttributes = attrs as [NSAttributedStringKey : Any]
         UINavigationBar.appearance().isTranslucent = false
+        
+        UILabel.appearance().font = UIFont(name: "Bodoni 72 Oldstyle", size: 16)
 
         return true
     }
