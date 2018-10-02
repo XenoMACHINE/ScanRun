@@ -12,6 +12,7 @@ import FirebaseFunctions
 import FirebaseAuth
 import FirebaseStorage
 import Alamofire
+import SideMenu
 
 class ViewController: UIViewController {
 
@@ -22,6 +23,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "ScanRun"
+        
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
@@ -39,11 +45,6 @@ class ViewController: UIViewController {
         }
         
         waitDuel()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onDisconnect(_ sender: Any) {
@@ -178,5 +179,24 @@ class ViewController: UIViewController {
         }
     }
     
+}
+
+extension UITextField
+{
+    open override func draw(_ rect: CGRect) {
+        self.layer.cornerRadius = 3.0
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.masksToBounds = true
+    }
+    
+    @IBInspectable var placeHolderColor: UIColor? {
+        get {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: newValue!])
+        }
+    }
 }
 

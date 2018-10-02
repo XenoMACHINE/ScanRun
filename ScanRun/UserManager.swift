@@ -19,6 +19,14 @@ class UserManager: NSObject {
 
     var token : String?
     var userId : String?
+    var email : String {
+        get{
+            return UserDefaults.standard.string(forKey: "user_email") ?? ""
+        }
+        set{
+            UserDefaults.standard.set(newValue, forKey: "user_email")
+        }
+    }
     
     func setToken(){
         self.userId = Auth.auth().currentUser?.uid

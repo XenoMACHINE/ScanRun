@@ -14,5 +14,6 @@ target 'ScanRun' do
   pod 'Firebase/Messaging'
   pod 'Alamofire', '~> 4.7'
   pod 'NVActivityIndicatorView'
+  pod 'SideMenu'
 
 end

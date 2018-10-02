@@ -27,6 +27,7 @@ class SignInSingUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emailTf.text = UserManager.shared.email
         secondPasswordTf.isHidden = true
         
         //Add delegate to all textfield in stackview
@@ -46,6 +47,7 @@ class SignInSingUpViewController: UIViewController {
     }
     
     func signIn(){
+        UserManager.shared.email = emailTf.text ?? ""
         self.connectBtn.setAnimating(animated: true)
         Auth.auth().signIn(withEmail: emailTf.text ?? "", password: passwordTf.text ?? "") { (result, error) in
             self.connectBtn.setAnimating(animated: false)

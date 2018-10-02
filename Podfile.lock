@@ -193,6 +193,7 @@ PODS:
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - SideMenu (4.0.0)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.0):
     - TwitterCore (>= 3.1.0)
@@ -206,6 +207,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI
   - NVActivityIndicatorView
+  - SideMenu
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -241,6 +243,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - Protobuf
     - SDWebImage
+    - SideMenu
     - TwitterCore
     - TwitterKit
 
@@ -277,9 +280,10 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 963f62bf9f993fcf23218e55958e5b1761b9504c
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SideMenu: 70ee5657df63ec3382660ec4ef470bf1cf5db07d
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 7f3ea7d4bef5023293e99c82271bfa1db07f524b
+PODFILE CHECKSUM: bf8614b5919b11b18405d314658418dc2b9d29bf
 
 COCOAPODS: 1.5.3

@@ -41,6 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         application.registerForRemoteNotifications()
+        
+        let attrs = [
+            NSAttributedStringKey.foregroundColor: UIColor.white
+        ]
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red:0.10, green:0.10, blue:0.10, alpha:1.0)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = attrs
+        UINavigationBar.appearance().isTranslucent = false
 
         return true
     }
