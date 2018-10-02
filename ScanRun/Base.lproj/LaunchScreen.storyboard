@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="glM-wg-6HY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view alpha="0.92000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZB-F2-CU0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ScanRun" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d11-Ne-L3Q">
@@ -66,16 +66,16 @@
                             <constraint firstItem="Exu-NS-pTe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="B8E-sB-clx"/>
                             <constraint firstItem="LEc-Tb-rlo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="55" id="EEF-Rc-Yq2"/>
                             <constraint firstItem="Exu-NS-pTe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="30" id="NbT-23-oD2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="glM-wg-6HY" secondAttribute="bottom" id="a13-o1-dbg"/>
+                            <constraint firstItem="glM-wg-6HY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="RsA-Qo-uM9"/>
+                            <constraint firstItem="lZB-F2-CU0" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="SPa-kc-hzR"/>
+                            <constraint firstAttribute="bottom" secondItem="glM-wg-6HY" secondAttribute="bottom" id="aJI-4d-0qG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="glM-wg-6HY" secondAttribute="trailing" id="b3Q-uo-5rO"/>
                             <constraint firstItem="AfP-oU-TGY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bZO-kB-g07"/>
                             <constraint firstItem="TAQ-gy-pft" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="cht-ev-TEk"/>
                             <constraint firstItem="LEc-Tb-rlo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cx8-8A-8bW"/>
-                            <constraint firstItem="glM-wg-6HY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gUm-3b-96T"/>
                             <constraint firstItem="glM-wg-6HY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hXf-0T-FCC"/>
                             <constraint firstItem="d11-Ne-L3Q" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-75" id="kDN-vg-yem"/>
-                            <constraint firstItem="lZB-F2-CU0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wIT-xH-zln"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lZB-F2-CU0" secondAttribute="bottom" id="xam-AB-tHr"/>
+                            <constraint firstAttribute="bottom" secondItem="lZB-F2-CU0" secondAttribute="bottom" id="lOO-5w-fKZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
