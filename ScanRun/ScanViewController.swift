@@ -75,7 +75,7 @@ class ScanViewController: UIViewController {
         // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame = globalView.layer.bounds
+        videoPreviewLayer?.frame = self.view.layer.bounds
         globalView.layer.addSublayer(videoPreviewLayer!)
         
         // Start video capture.
