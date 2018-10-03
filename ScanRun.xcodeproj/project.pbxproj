@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		456C69C42164CDD600F9FD8D /* DuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C69C32164CDD600F9FD8D /* DuelTableViewCell.swift */; };
+		456C69C62164D12200F9FD8D /* Duel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C69C52164D12200F9FD8D /* Duel.swift */; };
+		456C69C92165090000F9FD8D /* DuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C69C82165090000F9FD8D /* DuelManager.swift */; };
 		45849C03213FE978005AB34A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45849C02213FE978005AB34A /* ScanViewController.swift */; };
 		459845552163B7320071ABDF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459845542163B7320071ABDF /* MenuTableViewController.swift */; };
 		459845572163B8300071ABDF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459845562163B8300071ABDF /* MenuTableViewCell.swift */; };
 		AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B7564214025A2008F5A39 /* UserManager.swift */; };
-		AD5B7567214083ED008F5A39 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */; };
 		AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */; };
 		AD80F4372141CA7E006B5B5D /* SignInSingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */; };
 		AD80F4392141D487006B5B5D /* GlobalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F4382141D487006B5B5D /* GlobalButton.swift */; };
@@ -19,7 +21,7 @@
 		AD80F43D2141DB3B006B5B5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F43C2141DB3B006B5B5D /* User.swift */; };
 		AD80F43F2141DB82006B5B5D /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F43E2141DB82006B5B5D /* FriendCell.swift */; };
 		ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */; };
-		ADBA5AF5213F150A007ABEF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF4213F150A007ABEF5 /* ViewController.swift */; };
+		ADBA5AF5213F150A007ABEF5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF4213F150A007ABEF5 /* HomeViewController.swift */; };
 		ADBA5AF8213F150A007ABEF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA5AF6213F150A007ABEF5 /* Main.storyboard */; };
 		ADBA5AFA213F150A007ABEF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBA5AF9213F150A007ABEF5 /* Assets.xcassets */; };
 		ADBA5AFD213F150A007ABEF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA5AFB213F150A007ABEF5 /* LaunchScreen.storyboard */; };
@@ -30,12 +32,14 @@
 /* Begin PBXFileReference section */
 		06888B8CB4A714566D6F11C8 /* Pods-ScanRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanRun.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanRun/Pods-ScanRun.debug.xcconfig"; sourceTree = "<group>"; };
 		34D3FDB3EFA8116FD9277D8C /* Pods-ScanRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanRun.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanRun/Pods-ScanRun.release.xcconfig"; sourceTree = "<group>"; };
+		456C69C32164CDD600F9FD8D /* DuelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelTableViewCell.swift; sourceTree = "<group>"; };
+		456C69C52164D12200F9FD8D /* Duel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duel.swift; sourceTree = "<group>"; };
+		456C69C82165090000F9FD8D /* DuelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelManager.swift; sourceTree = "<group>"; };
 		45849C02213FE978005AB34A /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		459845542163B7320071ABDF /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		459845562163B8300071ABDF /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		64DB659265CEC5945BDAA98F /* Pods_ScanRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5B7564214025A2008F5A39 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSingUpViewController.swift; sourceTree = "<group>"; };
 		AD80F4382141D487006B5B5D /* GlobalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalButton.swift; sourceTree = "<group>"; };
@@ -45,7 +49,7 @@
 		AD80F44021426B4A006B5B5D /* ScanRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScanRun.entitlements; sourceTree = "<group>"; };
 		ADBA5AEF213F150A007ABEF5 /* ScanRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ADBA5AF4213F150A007ABEF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ADBA5AF4213F150A007ABEF5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ADBA5AF7213F150A007ABEF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADBA5AF9213F150A007ABEF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADBA5AFC213F150A007ABEF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +76,58 @@
 				34D3FDB3EFA8116FD9277D8C /* Pods-ScanRun.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		456C69BE2164C6F000F9FD8D /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				ADBA5AF6213F150A007ABEF5 /* Main.storyboard */,
+				ADBA5AFB213F150A007ABEF5 /* LaunchScreen.storyboard */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		456C69BF2164C71000F9FD8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				456C69C12164C75700F9FD8D /* Cells */,
+				AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */,
+				ADBA5AF4213F150A007ABEF5 /* HomeViewController.swift */,
+				45849C02213FE978005AB34A /* ScanViewController.swift */,
+				AD80F43A2141DABA006B5B5D /* DuelViewController.swift */,
+				459845542163B7320071ABDF /* MenuTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		456C69C02164C73800F9FD8D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AD5B7564214025A2008F5A39 /* UserManager.swift */,
+				AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */,
+				AD80F4382141D487006B5B5D /* GlobalButton.swift */,
+				456C69C82165090000F9FD8D /* DuelManager.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		456C69C12164C75700F9FD8D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD80F43E2141DB82006B5B5D /* FriendCell.swift */,
+				459845562163B8300071ABDF /* MenuTableViewCell.swift */,
+				456C69C32164CDD600F9FD8D /* DuelTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		456C69C22164C76A00F9FD8D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD80F43C2141DB3B006B5B5D /* User.swift */,
+				456C69C52164D12200F9FD8D /* Duel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9FA34542208EF77341853370 /* Frameworks */ = {
@@ -103,25 +159,15 @@
 		ADBA5AF1213F150A007ABEF5 /* ScanRun */ = {
 			isa = PBXGroup;
 			children = (
-				AD80F44021426B4A006B5B5D /* ScanRun.entitlements */,
 				ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */,
-				ADBA5AF6213F150A007ABEF5 /* Main.storyboard */,
-				ADBA5AFB213F150A007ABEF5 /* LaunchScreen.storyboard */,
+				456C69BF2164C71000F9FD8D /* Views */,
+				456C69BE2164C6F000F9FD8D /* Ressources */,
+				456C69C22164C76A00F9FD8D /* Models */,
+				456C69C02164C73800F9FD8D /* Classes */,
+				AD80F44021426B4A006B5B5D /* ScanRun.entitlements */,
 				ADBA5AFE213F150A007ABEF5 /* Info.plist */,
 				ADBA5B04213F1659007ABEF5 /* GoogleService-Info.plist */,
-				ADBA5AF4213F150A007ABEF5 /* ViewController.swift */,
-				45849C02213FE978005AB34A /* ScanViewController.swift */,
-				AD80F43A2141DABA006B5B5D /* DuelViewController.swift */,
 				ADBA5AF9213F150A007ABEF5 /* Assets.xcassets */,
-				AD5B7564214025A2008F5A39 /* UserManager.swift */,
-				AD5B7566214083ED008F5A39 /* SwiftyJSON.swift */,
-				AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */,
-				AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */,
-				AD80F4382141D487006B5B5D /* GlobalButton.swift */,
-				AD80F43C2141DB3B006B5B5D /* User.swift */,
-				AD80F43E2141DB82006B5B5D /* FriendCell.swift */,
-				459845542163B7320071ABDF /* MenuTableViewController.swift */,
-				459845562163B8300071ABDF /* MenuTableViewCell.swift */,
 			);
 			path = ScanRun;
 			sourceTree = "<group>";
@@ -320,16 +366,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD80F43F2141DB82006B5B5D /* FriendCell.swift in Sources */,
-				ADBA5AF5213F150A007ABEF5 /* ViewController.swift in Sources */,
+				ADBA5AF5213F150A007ABEF5 /* HomeViewController.swift in Sources */,
 				AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */,
+				456C69C92165090000F9FD8D /* DuelManager.swift in Sources */,
 				AD80F4392141D487006B5B5D /* GlobalButton.swift in Sources */,
 				AD80F4372141CA7E006B5B5D /* SignInSingUpViewController.swift in Sources */,
 				AD80F43B2141DABA006B5B5D /* DuelViewController.swift in Sources */,
 				ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */,
+				456C69C62164D12200F9FD8D /* Duel.swift in Sources */,
 				AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */,
+				456C69C42164CDD600F9FD8D /* DuelTableViewCell.swift in Sources */,
 				459845552163B7320071ABDF /* MenuTableViewController.swift in Sources */,
 				459845572163B8300071ABDF /* MenuTableViewCell.swift in Sources */,
-				AD5B7567214083ED008F5A39 /* SwiftyJSON.swift in Sources */,
 				AD80F43D2141DB3B006B5B5D /* User.swift in Sources */,
 				45849C03213FE978005AB34A /* ScanViewController.swift in Sources */,
 			);
