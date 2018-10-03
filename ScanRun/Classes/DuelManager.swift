@@ -15,13 +15,12 @@ class DuelManager : NSObject {
     private lazy var db = Firestore.firestore()
 
     
-    func getPublicDuels() {
+    func getPublicDuels(callback : @escaping (_ duels : [Duel]) -> ()) {
         
         db.collection("duels").whereField("isPublic", isEqualTo: true).addSnapshotListener({ (snapshot, error) in
-            let duels = (snapshot?.documents ?? []).map({
+            callback((snapshot?.documents ?? []).map({
                 Duel(json: $0.data())
-            })
-            print(duels)
+            }))
         })
         
     }

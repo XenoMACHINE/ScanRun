@@ -21,7 +21,11 @@ class HomeViewController: UIViewController {
     lazy var storage = Storage.storage()
     var dbArray : [[String:Any]] = []
     
-    var duelArray : [Duel] = []
+    var duelArray : [Duel] = [] {
+        didSet{
+            tableView.reloadData()
+        }
+    }
     
     var viewMenu = UIView()
     
@@ -42,9 +46,8 @@ class HomeViewController: UIViewController {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
-        DuelManager.shared.getPublicDuels()
-        
         drawMenu()
+        getPublicDuels()
         
         tableView.layer.borderWidth = 1.0
         tableView.layer.borderColor = UIColor.white.cgColor
@@ -60,6 +63,14 @@ class HomeViewController: UIViewController {
         }
         
         waitDuel()
+    }
+    
+    func getPublicDuels(){
+        NiceActivityIndicatorBuilder().setColor(UIColor.white).build().startAnimating(tableView)
+        DuelManager.shared.getPublicDuels { (duels) in
+            self.duelArray = duels
+            NiceActivityIndicator().stopAnimating(self.tableView)
+        }
     }
     
     func drawMenu() {
@@ -186,11 +197,7 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DuelTableViewCell", for: indexPath) as? DuelTableViewCell else { return UITableViewCell() }
         
-        //cell.setup(duel:duelArray[indexPath.row])
-        
-        if let imageHome = UIImage(named: "scanHome") {
-            cell.duelMedia.image = imageHome
-        }
+        cell.setup(duel:duelArray[indexPath.row])
         
         return cell
     }
