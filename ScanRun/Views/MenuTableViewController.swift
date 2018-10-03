@@ -12,7 +12,7 @@ import FirebaseAuth
 enum MenuData : String {
     case HOME = "Home"
     case DISCONNECTION = "Disconnection"
-    case SETTINGS = "Settings"
+    case PROFILE = "Profile"
 }
 
 class MenuTableViewController: UITableViewController {
@@ -22,12 +22,14 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red:0.10, green:0.10, blue:0.10, alpha:1.0)
+        
         if let iconHome = UIImage(named: "iconHome"),
-            let iconSettings = UIImage(named: "iconSettings"),
+            let iconUser = UIImage(named: "user"),
             let iconDisconnection = UIImage(named: "iconDisconnection") {
             
             dataTable.append((menuData: .HOME, image: iconHome))
-            dataTable.append((menuData: .SETTINGS, image: iconSettings))
+            dataTable.append((menuData: .PROFILE, image: iconUser))
             dataTable.append((menuData: .DISCONNECTION, image: iconDisconnection))
         }
         
@@ -56,9 +58,9 @@ class MenuTableViewController: UITableViewController {
             break
         case .DISCONNECTION:
             disconnect()
-        case .SETTINGS:
+        case .PROFILE:
             // TODO
-            print("Settings TO DO")
+            print("Profile TO DO")
         }
         
     }

@@ -14,17 +14,26 @@ import FirebaseStorage
 import Alamofire
 import SideMenu
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     lazy var db = Firestore.firestore()
     lazy var functions = Functions.functions()
     lazy var storage = Storage.storage()
     var dbArray : [[String:Any]] = []
+    
+    var duelArray : [Duel] = []
+    
+    var viewMenu = UIView()
+    
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "ScanRun"
+        
+        let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "UISideMenuNavigationController") as! UISideMenuNavigationController
+        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
         
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
@@ -32,7 +41,13 @@ class ViewController: UIViewController {
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
-        //testFirestore()
+        
+        DuelManager.shared.getPublicDuels()
+        
+        drawMenu()
+        
+        tableView.layer.borderWidth = 1.0
+        tableView.layer.borderColor = UIColor.white.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +60,23 @@ class ViewController: UIViewController {
         }
         
         waitDuel()
+    }
+    
+    func drawMenu() {
+        viewMenu.subviews.forEach({ $0.removeFromSuperview() }) // remove all subviews
+        viewMenu.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        let imageView = UIImageView(frame: viewMenu.frame)
+        imageView.image = UIImage(named: "iconMenu")
+        viewMenu.addSubview(imageView)
+        
+        let tapGestureRecognizerDeconnect = UITapGestureRecognizer(target: self, action: #selector(goToMenu))
+        viewMenu.addGestureRecognizer(tapGestureRecognizerDeconnect)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: viewMenu)
+    }
+    
+    @objc func goToMenu() {
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
     @IBAction func onDisconnect(_ sender: Any) {
@@ -126,63 +158,9 @@ class ViewController: UIViewController {
         }
     }
     
-    func testJsonToDB(){
-//        db.collection("products").getDocuments { (snapshot, error) in
-//            print(snapshot?.count)
-//        }
-//        return
-        
-        var json : JSON = []
-        //let storageRef = storage.reference()
-        if let path = Bundle.main.path(forResource: "myjsonfile", ofType: "json"){
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                json = JSON(data: data)
-                
-                if let array = json.arrayObject as? [[String:Any]]{
-                    dbArray = array
-                    pushIndex(i: 0)
-                    return
-                }
-                
-                var count = 0
-                for obj in json.arrayObject ?? []{
-                    if var jsonObj = obj as? [String:Any]{
-//
-//                        if let imageUrl = jsonObj["image"] as? String{
-//                            jsonObj["image"] = nil
-//                            storageRef.child("images")
-//                        }
-//
-                        if let id = jsonObj["id"] as? String{
-//                            if id == "5000112554359"{
-//                                print(jsonObj)
-//                            }
-                            db.collection("products").document(id).setData(jsonObj, merge : true)
-                        }
-                        
-                        count += 1
-                        if count % 10000 == 0 {
-                            print("########## IN PROGRESS ########## --- \(count)\n")
-                        }
-                    }
-                }
-                
-                if json == JSON.null {
-                    print("Could not get json from file, make sure that file contains valid json.")
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        } else {
-            print("Invalid filename/path.")
-        }
-    }
-    
 }
 
-extension UITextField
-{
+extension UITextField {
     open override func draw(_ rect: CGRect) {
         self.layer.cornerRadius = 3.0
         self.layer.borderWidth = 1.0
@@ -200,3 +178,21 @@ extension UITextField
     }
 }
 
+extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return duelArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DuelTableViewCell", for: indexPath) as? DuelTableViewCell else { return UITableViewCell() }
+        
+        //cell.setup(duel:duelArray[indexPath.row])
+        
+        if let imageHome = UIImage(named: "scanHome") {
+            cell.duelMedia.image = imageHome
+        }
+        
+        return cell
+    }
+    
+}
