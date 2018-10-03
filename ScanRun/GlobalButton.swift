@@ -20,6 +20,10 @@ class GlobalButton: UIButton {
         if activityIndicator == nil {
             activityIndicator = createActivityIndicator()
             self.addSubview(activityIndicator)
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            let horizontalConstraint = NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+            let verticalConstraint = NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+            self.addConstraints([horizontalConstraint, verticalConstraint])
         }
     }
 
@@ -38,7 +42,7 @@ class GlobalButton: UIButton {
     
     private func createActivityIndicator() -> NVActivityIndicatorView{
         let size : CGFloat = self.frame.height / 1.5
-        let frame = CGRect(x: (self.frame.width / 2) - (size / 2), y: (self.frame.height / 2) - (size / 2), width: size, height: size)
+        let frame = CGRect(x: 0, y: 0, width: size, height: size)
         return NVActivityIndicatorView(frame: frame, type: NVActivityIndicatorType.ballPulse, color: UIColor.white, padding: 0)
     }
 }

@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
-        Thread.sleep(forTimeInterval: 3.0)
+        Thread.sleep(forTimeInterval: 1.0)
         
         let colorView = UIView()
         colorView.backgroundColor = UIColor.black
