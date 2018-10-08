@@ -12,7 +12,7 @@ admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
 
 //Manage Auth
-exports.autoCreateUser = functions.auth.user().onCreate((user) => {
+exports.autoCreateUser = functions.region('europe-west1').auth.user().onCreate((user) => {
   //functions.auth.user().onCreate(event => {
   const email = user.email; // The email of the user.
   const uid = user.uid;
@@ -27,7 +27,7 @@ exports.autoCreateUser = functions.auth.user().onCreate((user) => {
   })
 });
 
-exports.autoDeleteUser = functions.auth.user().onDelete((user) => {
+exports.autoDeleteUser = functions.region('europe-west1').auth.user().onDelete((user) => {
   db.collection("users").doc(user.uid).delete();
   console.log("User [" + user.email + ", " + user.uid + "] deleted");
   return true
@@ -171,11 +171,25 @@ function findInUpcItem(ean, res) {
 
 let getProduct = (req, res) => {
     const ean = req.params.ean;
-    console.log("EAN : ", ean);
+    //console.log("EAN : ", ean);
 
     //Try find in db
-    findInDB(ean, res);
-    //findInOpenFoodFacts(ean, res);
+    findInDB(ean, res); //Test db then openfoodfact then UpcItem
+};
+
+let getMedia = (req, res) => {
+    db.collection("medias").doc("LOOhWcaMFWXGaWAfn0px").get().then(doc => {
+        return res.send(doc.data());
+    })
+}
+
+let emptyRequest = (req, res) => {
+    return res.status(200).send("OK");
+};
+
+let sendProduct = (req, res) =>{
+    const brand = req.body.brand;
+    console.log(req.body);
 };
 
 let sendNotif = (req, res) => {
@@ -194,15 +208,21 @@ let sendNotif = (req, res) => {
             };
             admin.messaging().sendToDevice(FCMToken, payload);
         });
-}
+};
+
 
 //Config
 app.use(cors({ origin: true }));
 app.use(authenticate);
 
 //Roots
+app.get('/emptyRequest', emptyRequest);
 app.get('/getProduct/:ean', getProduct);
+app.get('/getMediaTest', getMedia);
+app.post('/sendProduct', bodyParser.json(), sendProduct);
 //app.post('/sendNotif', bodyParser.json(), sendNotif);
 
 //Deploy
-exports.api = functions.https.onRequest(app);
+exports.api = functions
+    .region('europe-west1')
+    .https.onRequest(app);

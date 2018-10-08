@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1068063279277-tksill0i83sh00rndvlknpk63m4fvhjg.apps.googleusercontent.com</string>
+	<string>157780534887-a3lk294dm2ae367uqb50vrq12stfttp0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1068063279277-tksill0i83sh00rndvlknpk63m4fvhjg</string>
+	<string>com.googleusercontent.apps.157780534887-a3lk294dm2ae367uqb50vrq12stfttp0</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB4qoZ6Cg9KM1mM8DDw4UwMtUFua462bbE</string>
+	<string>AIzaSyAF_WYZ4JlcYq3v6bejYaaLsXSRnu1jdlg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1068063279277</string>
+	<string>157780534887</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.esgi.ScanRun</string>
 	<key>PROJECT_ID</key>
-	<string>scanrun-5f26e</string>
+	<string>scanruneu</string>
 	<key>STORAGE_BUCKET</key>
-	<string>scanrun-5f26e.appspot.com</string>
+	<string>scanruneu.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1068063279277:ios:89a3941e359dc339</string>
+	<string>1:157780534887:ios:89a3941e359dc339</string>
 	<key>DATABASE_URL</key>
-	<string>https://scanrun-5f26e.firebaseio.com</string>
+	<string>https://scanruneu.firebaseio.com</string>
 </dict>
 </plist>

@@ -46,23 +46,26 @@ class HomeViewController: UIViewController {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
+        checkSignIn()
+        UserManager.shared.setToken()
         drawMenu()
         getPublicDuels()
-        
+        waitDuel()
+
         tableView.layer.borderWidth = 1.0
         tableView.layer.borderColor = UIColor.white.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+    func checkSignIn(){
         if Auth.auth().currentUser == nil{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let signInSingUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignInSingUpViewController") as! SignInSingUpViewController
             self.present(signInSingUpViewController, animated: true)
-        }else{
-            UserManager.shared.setToken()
         }
-        
-        waitDuel()
     }
     
     func getPublicDuels(){
@@ -200,6 +203,10 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
         cell.setup(duel:duelArray[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.reloadData()
     }
     
 }
