@@ -88,16 +88,13 @@ function findInDB(ean, res){
             if (!doc.exists) {
                 console.log("DB don't find");
                 findInOpenFoodFacts(ean, res);
-                //return res.status(404).send('No product found');
             } else {
-                console.log(doc.data());
-                return res.send(doc.data());
+                return res.status(200).send(doc.data());
             }
         })
         .catch(err => {
             console.log("DB don't find");
             findInOpenFoodFacts(ean, res);
-            //return res.status(404).send('No product found');
         });
 }
 
@@ -111,8 +108,9 @@ function findInOpenFoodFacts(ean, res){
             let product = json.product;
             if (json.status != 0){
                 if (product.id != undefined){
+                    console.log("SEND DATA TO DB");
                     let post = {
-                        id: product.id,
+                        id: ean,
                         name: product.product_name || product_name_fr || product.generic_name_fr || product.generic_name || "",
                         brand: product.brands || ""
                     };
@@ -122,9 +120,9 @@ function findInOpenFoodFacts(ean, res){
                     }
                     console.log(post);
                     db.collection('products').doc(ean).set(post);
-                    return res.send(post);
+                    return res.status(200).send(post);
                 }
-                return res.send(body);
+                return res.status(200).send(body);
             }else {
                 console.log("OPEN FOOD don't find");
                 findInUpcItem(ean, res);
@@ -148,12 +146,12 @@ function findInUpcItem(ean, res) {
                 console.log("SEND DATA TO DB");
                 let product = json.items[0];
                 let post = {
-                    id: product.ean,
+                    id: ean,
                     name: product.title,
                     brand: product.brand
                 };
                 db.collection('products').doc(ean).set(post);
-                return res.send(post);
+                return res.status(200).send(post);
             }else {
                 console.log("UPC don't find");
                 //findInOpenFoodFacts();

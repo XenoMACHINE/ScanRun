@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43363c01-72c9-4a60-880d-ef9ee12195aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ScanRun/Classes/APIManager.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ScanRun/Classes/UsefulExtensions.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ScanRun/Views/NewProductViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ScanRun.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ScanRun.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ScanRun/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../ScanRun/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ScanRun/Ressources/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../ScanRun/Ressources/Base.lproj/Main.storyboard" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,14 +35,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="912" />
+          <entry key="js" value="931" />
           <entry key="json" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="912" />
+          <entry key="JavaScript" value="931" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.mvc.usages" />
@@ -63,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="970">
-              <caret line="198" column="18" lean-forward="true" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
+            <state relative-caret-position="451">
+              <caret line="106" column="40" lean-forward="true" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -85,6 +78,8 @@
       <find>bodyParser</find>
       <find>static.openfoodfacts.org/images</find>
       <find>users</find>
+      <find>send d</find>
+      <find>.send(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,7 +160,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539438314285" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539442811162" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -247,12 +242,12 @@
       <updated>1538735736148</updated>
       <workItem from="1538735737641" duration="1299000" />
       <workItem from="1538989721312" duration="7384000" />
-      <workItem from="1539361022362" duration="1670000" />
+      <workItem from="1539361022362" duration="2477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10353000" />
+    <option name="totallyTimeSpent" value="11160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -296,8 +291,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/functions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="970">
-          <caret line="198" column="18" lean-forward="true" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
+        <state relative-caret-position="451">
+          <caret line="106" column="40" lean-forward="true" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
         </state>
       </provider>
     </entry>
