@@ -57,7 +57,6 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     func checkSignIn(){

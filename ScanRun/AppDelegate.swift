@@ -184,22 +184,6 @@ extension AppDelegate : MessagingDelegate {
     // [END ios_10_data_message]
 }
 
-
-extension UIViewController{
-    func showAlert(title : String, message : String, actions : [UIAlertAction] = [UIAlertAction(title: "Ok", style: .cancel) { (_) in }], style : UIAlertControllerStyle = .actionSheet){
-        
-        var alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        if UIDevice().model == "iPad" {
-            alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        }
-        
-        for action in actions{
-            alertController.addAction(action)
-        }
-        self.present(alertController, animated: true, completion: nil)
-    }
-}
-
 extension UIApplication {
     
     var statusBarView: UIView? {

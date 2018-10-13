@@ -203,7 +203,7 @@ let sendProduct = (req, res) =>{
     if (quantity != undefined) { post["quantity"] = quantity }
     if (image != undefined) { post["image"] = image }
 
-    db.collection('products').doc(ean).update(post).then(()=>{
+    db.collection('products').doc(ean).set(post).then(()=>{
             console.log("Product created/updated")
         })
     return res.status(201).send(post);
@@ -230,7 +230,7 @@ let sendNotif = (req, res) => {
 
 //Config
 app.use(cors({ origin: true }));
-app.use(authenticate);
+//app.use(authenticate);
 
 //Roots
 app.get('/emptyRequest', emptyRequest);

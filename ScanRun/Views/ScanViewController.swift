@@ -189,7 +189,7 @@ class ScanViewController: UIViewController {
                 print(error)
                 //TODO formulaire
                 let addProductAction = UIAlertAction(title: "Ajouter le produit", style: .default, handler: { (action) in
-                    
+                    self.presentNewProduct()
                 })
                 let rescanAction = UIAlertAction(title: "Scanner un autre produit", style: .cancel, handler: { (action) in
                     self.messageLabel.text = "Scannez le produit"
@@ -201,6 +201,12 @@ class ScanViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    func presentNewProduct(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let newProductVC = storyBoard.instantiateViewController(withIdentifier: "NewProductViewController") as! NewProductViewController
+        self.present(newProductVC, animated: true)
     }
     
     // MARK: - Helper methods
