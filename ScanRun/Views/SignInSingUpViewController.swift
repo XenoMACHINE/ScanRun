@@ -29,8 +29,10 @@ class SignInSingUpViewController: UIViewController {
 
         emailTf.text = UserManager.shared.email
         secondPasswordTf.isHidden = true
-        
-        //Add delegate to all textfield in stackview
+        addDelegateTextfieldsInStackview()
+    }
+    
+    func addDelegateTextfieldsInStackview() {
         var count = 0
         for view in stackTextfield.subviews{
             if let textfield = view as? UITextField{
@@ -39,11 +41,6 @@ class SignInSingUpViewController: UIViewController {
                 count += 1
             }
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func signIn(){

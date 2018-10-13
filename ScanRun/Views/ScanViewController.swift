@@ -43,6 +43,8 @@ class ScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageProduct.contentMode = UIViewContentMode.scaleAspectFit
+        
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
         
@@ -81,23 +83,6 @@ class ScanViewController: UIViewController {
         // Start video capture.
         captureSession.startRunning()
         
-        // Move the message label and top bar to the front
-        //view.bringSubview(toFront: messageLabel)
-        
-//        // Initialize QR Code Frame to highlight the QR code
-//        qrCodeFrameView = UIView()
-//
-//        if let qrCodeFrameView = qrCodeFrameView {
-//            qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-//            qrCodeFrameView.layer.borderWidth = 2
-//            globalView.addSubview(qrCodeFrameView)
-//            globalView.bringSubview(toFront: qrCodeFrameView)
-//        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getProduct(ean : String){
@@ -108,7 +93,7 @@ class ScanViewController: UIViewController {
             .build()
             .startAnimating(self.globalView)
         
-        let url = "https://us-central1-scanrun-5f26e.cloudfunctions.net/api/getProduct/" + ean
+        let url = "https://europe-west1-scanruneu.cloudfunctions.net/api/getProduct/" + ean
         let headers : HTTPHeaders = ["Authorization":"Bearer \(UserManager.shared.token ?? "")"]
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             NiceActivityIndicator().stopAnimating(self.globalView)
@@ -206,32 +191,8 @@ class ScanViewController: UIViewController {
     func presentNewProduct(){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let newProductVC = storyBoard.instantiateViewController(withIdentifier: "NewProductViewController") as! NewProductViewController
+        newProductVC.passedEAN = self.idProduct
         self.present(newProductVC, animated: true)
-    }
-    
-    // MARK: - Helper methods
-    func launchApp(decodedURL: String) {
-        
-        if presentedViewController != nil {
-            return
-        }
-        
-        let alertPrompt = UIAlertController(title: "Open App", message: "You're going to open \(decodedURL)", preferredStyle: .actionSheet)
-        let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (action) -> Void in
-            
-            if let url = URL(string: decodedURL) {
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
-            }
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-        
-        alertPrompt.addAction(confirmAction)
-        alertPrompt.addAction(cancelAction)
-        
-        present(alertPrompt, animated: true, completion: nil)
     }
     
     func reScan() {
@@ -282,10 +243,8 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil, let ean = metadataObj.stringValue  {
-                //launchApp(decodedURL: ean)
                 self.idProduct = ean
                 getProduct(ean: ean)
-                //messageLabel.text = metadataObj.stringValue
                 messageLabel.text = "Produit detécté !"
                 messageLabel.backgroundColor = UIColor(red:0.16, green:0.69, blue:0.10, alpha:0.9)
                 captureSession.stopRunning()

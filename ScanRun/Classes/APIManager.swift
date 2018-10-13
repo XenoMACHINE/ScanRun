@@ -37,7 +37,7 @@ class APIManager : NSObject {
         
         if let noNilBrand = brand, noNilBrand != "" { parameters["brand"] = noNilBrand }
         if let noNilQuantity = quantity, noNilQuantity != "" { parameters["quantity"] = noNilQuantity }
-        if let noNilImageUrl = imageUrl, noNilImageUrl != "" { parameters["image"] = noNilImageUrl }
+        if let noNilImageUrl = imageUrl, noNilImageUrl != "" { parameters["imgUrl"] = noNilImageUrl }
 
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             switch response.result {
