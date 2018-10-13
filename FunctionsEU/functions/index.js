@@ -189,7 +189,7 @@ let sendProduct = (req, res) =>{
     const image = req.body.imgUrl;
 
     if (ean == undefined || name == undefined || ean.length == 0 || name.length == 0) {
-        return res.status(400).send("POST EXEMPLE [*NEEDED] \n\n*ean : 01234567891234\n*name : Coca Cola zero 1L\nbrand : Coca Cola\nquantity : 1L\nimgURl : https://images/1234.png")
+        return res.status(400).send("POST EXEMPLE [*NEEDED] \n\n*ean : 01234567891234\n*name : Coca Cola zero 1L\nbrand : Coca Cola\nquantity : 1L\nimgUrl : https://images/1234.png")
     }
 
     let post = {
