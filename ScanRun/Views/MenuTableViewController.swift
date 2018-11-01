@@ -50,7 +50,6 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.reloadData()
         
-        dismiss(animated: true)
         
         switch dataTable[indexPath.row].menuData {
             
@@ -58,18 +57,24 @@ class MenuTableViewController: UITableViewController {
             break
         case .DISCONNECTION:
             disconnect()
+            return
         case .PROFILE:
             // TODO
             print("Profile TO DO")
         }
         
+        dismiss(animated: true)
+        
     }
     
     func disconnect() {
-        try? Auth.auth().signOut()
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let signInSingUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignInSingUpViewController") as! SignInSingUpViewController
-        self.present(signInSingUpViewController, animated: true)
+        self.dismiss(animated: true) {
+            guard let topController = UIApplication.topViewController() else { return }
+            try? Auth.auth().signOut()
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let signInSingUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignInSingUpViewController") as! SignInSingUpViewController
+            topController.present(signInSingUpViewController, animated: true)
+        }
     }
     
 }

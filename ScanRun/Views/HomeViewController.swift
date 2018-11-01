@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
         drawMenu()
         getPublicDuels()
         waitDuel()
+        //getNbProductsInDb()
 
         tableView.layer.borderWidth = 1.0
         tableView.layer.borderColor = UIColor.white.cgColor
@@ -66,6 +67,12 @@ class HomeViewController: UIViewController {
             self.present(signInSingUpViewController, animated: true)
         }
     }
+    
+//    func getNbProductsInDb(){
+//        db.collection("products").getDocuments { (snap, error) in
+//            print(snap)
+//        }
+//    }
     
     func getPublicDuels(){
         NiceActivityIndicatorBuilder().setColor(UIColor.white).build().startAnimating(tableView)
@@ -92,11 +99,11 @@ class HomeViewController: UIViewController {
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
-    @IBAction func onDisconnect(_ sender: Any) {
-        try? Auth.auth().signOut()
+    @IBAction func goToScores(_ sender: Any) {
+    
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let signInSingUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignInSingUpViewController") as! SignInSingUpViewController
-        self.present(signInSingUpViewController, animated: true)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "ScoresViewController") as! ScoresViewController
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     @IBAction func goToScan(segue: UIStoryboardSegue) {
@@ -206,6 +213,10 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.reloadData()
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "DuelDetailViewController") as! DuelDetailViewController
+        controller.duel = duelArray[indexPath.row]
+        self.present(controller, animated: true)
     }
     
 }

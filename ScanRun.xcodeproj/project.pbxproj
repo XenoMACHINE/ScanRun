@@ -16,8 +16,14 @@
 		AD39378021721BE700C180AB /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39377F21721BE700C180AB /* NewProductViewController.swift */; };
 		AD39378221721EC800C180AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39378121721EC800C180AB /* APIManager.swift */; };
 		AD3937842172253200C180AB /* UsefulExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3937832172253200C180AB /* UsefulExtensions.swift */; };
+		AD39F5A2218B4E370016993B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39F5A1218B4E370016993B /* UserViewController.swift */; };
+		AD39F5A4218B54B60016993B /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39F5A3218B54B60016993B /* ScoreCell.swift */; };
+		AD39F5A6218B54D50016993B /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39F5A5218B54D50016993B /* ScoresViewController.swift */; };
 		AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B7564214025A2008F5A39 /* UserManager.swift */; };
 		AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */; };
+		AD5C8CED217DC0940081B706 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C8CEC217DC0940081B706 /* ProductViewController.swift */; };
+		AD5C8CEF217DC1360081B706 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C8CEE217DC1360081B706 /* Product.swift */; };
+		AD5C8CF1217DCC020081B706 /* DuelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C8CF0217DCC020081B706 /* DuelDetailViewController.swift */; };
 		AD80F4372141CA7E006B5B5D /* SignInSingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */; };
 		AD80F4392141D487006B5B5D /* GlobalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F4382141D487006B5B5D /* GlobalButton.swift */; };
 		AD80F43B2141DABA006B5B5D /* DuelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F43A2141DABA006B5B5D /* DuelViewController.swift */; };
@@ -45,8 +51,14 @@
 		AD39377F21721BE700C180AB /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
 		AD39378121721EC800C180AB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		AD3937832172253200C180AB /* UsefulExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulExtensions.swift; sourceTree = "<group>"; };
+		AD39F5A1218B4E370016993B /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		AD39F5A3218B54B60016993B /* ScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
+		AD39F5A5218B54D50016993B /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 		AD5B7564214025A2008F5A39 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		AD5B756A2141924D008F5A39 /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
+		AD5C8CEC217DC0940081B706 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		AD5C8CEE217DC1360081B706 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		AD5C8CF0217DCC020081B706 /* DuelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelDetailViewController.swift; sourceTree = "<group>"; };
 		AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSingUpViewController.swift; sourceTree = "<group>"; };
 		AD80F4382141D487006B5B5D /* GlobalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalButton.swift; sourceTree = "<group>"; };
 		AD80F43A2141DABA006B5B5D /* DuelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +115,10 @@
 				AD80F43A2141DABA006B5B5D /* DuelViewController.swift */,
 				459845542163B7320071ABDF /* MenuTableViewController.swift */,
 				AD39377F21721BE700C180AB /* NewProductViewController.swift */,
+				AD5C8CEC217DC0940081B706 /* ProductViewController.swift */,
+				AD5C8CF0217DCC020081B706 /* DuelDetailViewController.swift */,
+				AD39F5A1218B4E370016993B /* UserViewController.swift */,
+				AD39F5A5218B54D50016993B /* ScoresViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +142,7 @@
 				AD80F43E2141DB82006B5B5D /* FriendCell.swift */,
 				459845562163B8300071ABDF /* MenuTableViewCell.swift */,
 				456C69C32164CDD600F9FD8D /* DuelTableViewCell.swift */,
+				AD39F5A3218B54B60016993B /* ScoreCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -135,6 +152,7 @@
 			children = (
 				AD80F43C2141DB3B006B5B5D /* User.swift */,
 				456C69C52164D12200F9FD8D /* Duel.swift */,
+				AD5C8CEE217DC1360081B706 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -377,11 +395,14 @@
 				AD80F43F2141DB82006B5B5D /* FriendCell.swift in Sources */,
 				ADBA5AF5213F150A007ABEF5 /* HomeViewController.swift in Sources */,
 				AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */,
+				AD39F5A2218B4E370016993B /* UserViewController.swift in Sources */,
 				AD3937842172253200C180AB /* UsefulExtensions.swift in Sources */,
 				AD39378021721BE700C180AB /* NewProductViewController.swift in Sources */,
 				456C69C92165090000F9FD8D /* DuelManager.swift in Sources */,
+				AD39F5A4218B54B60016993B /* ScoreCell.swift in Sources */,
 				AD80F4392141D487006B5B5D /* GlobalButton.swift in Sources */,
 				AD80F4372141CA7E006B5B5D /* SignInSingUpViewController.swift in Sources */,
+				AD5C8CF1217DCC020081B706 /* DuelDetailViewController.swift in Sources */,
 				AD80F43B2141DABA006B5B5D /* DuelViewController.swift in Sources */,
 				ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */,
 				456C69C62164D12200F9FD8D /* Duel.swift in Sources */,
@@ -390,6 +411,9 @@
 				AD39378221721EC800C180AB /* APIManager.swift in Sources */,
 				459845552163B7320071ABDF /* MenuTableViewController.swift in Sources */,
 				459845572163B8300071ABDF /* MenuTableViewCell.swift in Sources */,
+				AD39F5A6218B54D50016993B /* ScoresViewController.swift in Sources */,
+				AD5C8CED217DC0940081B706 /* ProductViewController.swift in Sources */,
+				AD5C8CEF217DC1360081B706 /* Product.swift in Sources */,
 				AD80F43D2141DB3B006B5B5D /* User.swift in Sources */,
 				45849C03213FE978005AB34A /* ScanViewController.swift in Sources */,
 			);

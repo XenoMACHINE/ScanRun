@@ -16,6 +16,7 @@ class Duel: NSObject {
     var idProduct : String?
     var isPublic : Bool?
     var duration : Double?
+    var idCreator : String?
     
     init(title : String?, id : String?, isClosed : Bool? = false, idProduct : String?, isPublic : Bool?, duration : Double?) {
         self.title = title
@@ -33,5 +34,6 @@ class Duel: NSObject {
         self.idProduct = json["idProduct"] as? String
         self.isPublic = json["isPublic"] as? Bool
         self.duration = json["duration"] as? Double
+        self.idCreator = json["idCreator"] as? String
     }
 }

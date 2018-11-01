@@ -144,7 +144,6 @@ class ScanViewController: UIViewController {
                             let imageUrl:URL = URL(string: imageUrlString)!
                             
                             DispatchQueue.global(qos: .userInitiated).async {
-                                
                                 let imageData:NSData = NSData(contentsOf: imageUrl)!
                                 
                                 // When from background thread, UI needs to be updated on main_queue
