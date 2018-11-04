@@ -18,6 +18,8 @@ class CreateDuelViewController: UIViewController {
     @IBOutlet weak var eanLabel: UILabel!
     @IBOutlet weak var nameProductLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var timeTextfield: UITextField!
+    @IBOutlet weak var timeSelector: UISegmentedControl!
     
     lazy var db = Firestore.firestore()
     
@@ -29,10 +31,12 @@ class CreateDuelViewController: UIViewController {
         super.viewDidLoad()
 
         titletf.delegate = self
+        timeTextfield.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         refreshFriendBtn()
+        refreshProductInfos()
     }
     
     func refreshFriendBtn(){
@@ -42,6 +46,50 @@ class CreateDuelViewController: UIViewController {
         }else{
             searchFriendBtn.setTitle("Envoyer à \(friendName)", for: .normal)
         }
+    }
+    
+    func refreshProductInfos(){
+        guard let product = chooseProduct else { return }
+        self.nameProductLabel.text = "\(product.name ?? "") - \(product.brand ?? "")"
+        self.quantityLabel.text = product.quantity
+        self.eanLabel.text = product.id
+        if let image = product.loadedImage{
+            self.imageProduct.image = image
+        }else{
+            loadProductImage()
+        }
+    }
+    
+    func loadProductImage(){
+        guard let imgUrl = chooseProduct?.imageUrl else {
+            NiceActivityIndicator().stopAnimating(self.imageProduct)
+            return
+        }
+        
+        self.imageProduct.downloaded(from: imgUrl, contentMode: .scaleAspectFill) {
+            if self.imageProduct.image == nil {
+                self.imageProduct.image = UIImage(named: "placeholder")
+            }
+            NiceActivityIndicator().stopAnimating(self.imageProduct)
+        }
+    }
+    
+    func getDuration() -> Int?{ //in seconds
+        guard let durationTxt = timeTextfield.text, let duration = Int(durationTxt) else { return nil}
+        var secDuration = duration
+        
+        switch timeSelector.selectedSegmentIndex{
+        case 0:
+            secDuration *= 60
+        case 1:
+            secDuration *= 3600
+        case 2:
+            secDuration *= (3600 * 24)
+        default:
+            secDuration *= 60
+        }
+        
+        return secDuration
     }
     
     @IBAction func onClose(_ sender: Any) {
@@ -54,7 +102,8 @@ class CreateDuelViewController: UIViewController {
     
     @IBAction func onLaunchDuel(_ sender: Any) {
         guard let idProduct = chooseProduct?.id,
-            (switchPublic.isOn || idFriend != nil)
+            (switchPublic.isOn || idFriend != nil),
+            let duration = getDuration()
             else { self.showAlert(title: "Remplissze tous les champs", message: "")
             return }
         var duel : [String : Any] = [
@@ -62,12 +111,13 @@ class CreateDuelViewController: UIViewController {
             "isPublic"  : switchPublic.isOn,
             "idCreator" : UserManager.shared.userId ?? "",
             "idProduct" : idProduct,
-            "duration"  : 3600
+            "duration"  : duration
         ]
         if let idChallenger = idFriend {
             duel["idChallenger"] = idChallenger
         }
         db.collection("duels").addDocument(data: duel)
+        self.dismiss(animated: true)
     }
 }
 

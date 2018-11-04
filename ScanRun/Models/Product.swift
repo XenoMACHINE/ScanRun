@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Product: NSObject {
     
@@ -15,6 +16,7 @@ class Product: NSObject {
     var imageUrl : String?
     var name : String?
     var quantity : String?
+    var loadedImage : UIImage?
     
     init(json: [String:Any]){
         self.id = json["id"] as? String

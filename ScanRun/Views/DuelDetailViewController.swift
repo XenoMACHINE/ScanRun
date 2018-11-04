@@ -98,4 +98,8 @@ class DuelDetailViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction func onClose(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
 }

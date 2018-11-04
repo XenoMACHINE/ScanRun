@@ -153,6 +153,7 @@ class ScanViewController: UIViewController {
                                 DispatchQueue.main.async {
                                     let imageDef = UIImage(data: imageData as Data)
                                     NiceActivityIndicator().stopAnimating(self.imageProduct)
+                                    self.productFound?.loadedImage = imageDef
                                     self.imageProduct.image = imageDef
                                     self.imageProduct.contentMode = UIViewContentMode.scaleAspectFit
                                 }
