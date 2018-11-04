@@ -29,6 +29,10 @@
 		AD80F43B2141DABA006B5B5D /* DuelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F43A2141DABA006B5B5D /* DuelViewController.swift */; };
 		AD80F43D2141DB3B006B5B5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F43C2141DB3B006B5B5D /* User.swift */; };
 		AD80F43F2141DB82006B5B5D /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F43E2141DB82006B5B5D /* FriendCell.swift */; };
+		AD9C3357218F4F85009C1580 /* CreateDuelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C3356218F4F85009C1580 /* CreateDuelViewController.swift */; };
+		AD9C335B218F5667009C1580 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C335A218F5667009C1580 /* FriendsViewController.swift */; };
+		AD9C335D218F6213009C1580 /* ClassicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C335C218F6213009C1580 /* ClassicCell.swift */; };
+		AD9C335F218F62F3009C1580 /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C335E218F62F3009C1580 /* SearchProductViewController.swift */; };
 		ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */; };
 		ADBA5AF5213F150A007ABEF5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5AF4213F150A007ABEF5 /* HomeViewController.swift */; };
 		ADBA5AF8213F150A007ABEF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBA5AF6213F150A007ABEF5 /* Main.storyboard */; };
@@ -65,6 +69,10 @@
 		AD80F43C2141DB3B006B5B5D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AD80F43E2141DB82006B5B5D /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		AD80F44021426B4A006B5B5D /* ScanRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScanRun.entitlements; sourceTree = "<group>"; };
+		AD9C3356218F4F85009C1580 /* CreateDuelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDuelViewController.swift; sourceTree = "<group>"; };
+		AD9C335A218F5667009C1580 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		AD9C335C218F6213009C1580 /* ClassicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicCell.swift; sourceTree = "<group>"; };
+		AD9C335E218F62F3009C1580 /* SearchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductViewController.swift; sourceTree = "<group>"; };
 		ADBA5AEF213F150A007ABEF5 /* ScanRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBA5AF2213F150A007ABEF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADBA5AF4213F150A007ABEF5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -115,10 +123,13 @@
 				AD80F43A2141DABA006B5B5D /* DuelViewController.swift */,
 				459845542163B7320071ABDF /* MenuTableViewController.swift */,
 				AD39377F21721BE700C180AB /* NewProductViewController.swift */,
+				AD9C335A218F5667009C1580 /* FriendsViewController.swift */,
 				AD5C8CEC217DC0940081B706 /* ProductViewController.swift */,
 				AD5C8CF0217DCC020081B706 /* DuelDetailViewController.swift */,
 				AD39F5A1218B4E370016993B /* UserViewController.swift */,
 				AD39F5A5218B54D50016993B /* ScoresViewController.swift */,
+				AD9C3356218F4F85009C1580 /* CreateDuelViewController.swift */,
+				AD9C335E218F62F3009C1580 /* SearchProductViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +154,7 @@
 				459845562163B8300071ABDF /* MenuTableViewCell.swift */,
 				456C69C32164CDD600F9FD8D /* DuelTableViewCell.swift */,
 				AD39F5A3218B54B60016993B /* ScoreCell.swift */,
+				AD9C335C218F6213009C1580 /* ClassicCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -394,6 +406,7 @@
 			files = (
 				AD80F43F2141DB82006B5B5D /* FriendCell.swift in Sources */,
 				ADBA5AF5213F150A007ABEF5 /* HomeViewController.swift in Sources */,
+				AD9C335B218F5667009C1580 /* FriendsViewController.swift in Sources */,
 				AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */,
 				AD39F5A2218B4E370016993B /* UserViewController.swift in Sources */,
 				AD3937842172253200C180AB /* UsefulExtensions.swift in Sources */,
@@ -410,11 +423,14 @@
 				456C69C42164CDD600F9FD8D /* DuelTableViewCell.swift in Sources */,
 				AD39378221721EC800C180AB /* APIManager.swift in Sources */,
 				459845552163B7320071ABDF /* MenuTableViewController.swift in Sources */,
+				AD9C335D218F6213009C1580 /* ClassicCell.swift in Sources */,
 				459845572163B8300071ABDF /* MenuTableViewCell.swift in Sources */,
+				AD9C3357218F4F85009C1580 /* CreateDuelViewController.swift in Sources */,
 				AD39F5A6218B54D50016993B /* ScoresViewController.swift in Sources */,
 				AD5C8CED217DC0940081B706 /* ProductViewController.swift in Sources */,
 				AD5C8CEF217DC1360081B706 /* Product.swift in Sources */,
 				AD80F43D2141DB3B006B5B5D /* User.swift in Sources */,
+				AD9C335F218F62F3009C1580 /* SearchProductViewController.swift in Sources */,
 				45849C03213FE978005AB34A /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

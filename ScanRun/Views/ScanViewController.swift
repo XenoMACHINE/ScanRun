@@ -25,6 +25,7 @@ class ScanViewController: UIViewController {
     var idProduct = ""
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
+    var productFound : Product?
     
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
                                       AVMetadataObject.ObjectType.code39,
@@ -109,6 +110,8 @@ class ScanViewController: UIViewController {
                     .setColor(.white)
                     .build()
                     .startAnimating(self.imageProduct)
+                    
+                    self.productFound = Product(json: json)
                     
                     if let title = json["name"] as? String{
                         if title != "" {
@@ -206,6 +209,10 @@ class ScanViewController: UIViewController {
     }
     
     @IBAction func onValidate(_ sender: Any) {
+        if let presenter = presentingViewController as? CreateDuelViewController {
+            presenter.chooseProduct = self.productFound
+            self.dismiss(animated: true)
+        }
         captureSession.startRunning()
         productView.isHidden = true
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
