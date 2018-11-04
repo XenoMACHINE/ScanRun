@@ -56,10 +56,32 @@ class DuelDetailViewController: UIViewController {
     func initUI(){
         setProductUI()
         setCreatorUI()
+        setDuration()
         
         productImage.layer.cornerRadius = 3
         userImage.layer.cornerRadius = userImage.frame.width / 2
         titleLabel.text = duel?.title
+    }
+    
+    func setDuration(){
+        guard let duration = duel?.duration else { return }
+        let minutes = duration / 60
+        let hours = duration / 3600
+        let days = duration / (3600*24)
+        
+        var time = minutes
+        var timeType = "min"
+        
+        if minutes >= 60 {
+            time = hours
+            timeType = "h"
+        }
+        if hours >= 24 {
+            time = days
+            timeType = "j"
+        }
+        
+        self.timeLabel.text = "\"Je te donne \(time) \(timeType) pour ce défie !\""
     }
     
     func setProductUI(){

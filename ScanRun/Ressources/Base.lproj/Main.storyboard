@@ -344,8 +344,8 @@
                                 <rect key="frame" x="59" y="152" width="191" height="29"/>
                                 <segments>
                                     <segment title="Minutes"/>
-                                    <segment title="Hours"/>
-                                    <segment title="Days"/>
+                                    <segment title="Heures"/>
+                                    <segment title="Jours"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
@@ -636,7 +636,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="345" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="LP7-bD-3ov">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LP7-bD-3ov">
                                                     <rect key="frame" x="20" y="25" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Y53-dz-dbE"/>
@@ -1704,7 +1704,6 @@
     </scenes>
     <resources>
         <image name="cancel" width="102.40000152587891" height="102.40000152587891"/>
-        <image name="launch" width="1709" height="2560"/>
         <image name="login" width="4000" height="3000"/>
         <image name="placeholder" width="1065" height="800"/>
         <image name="scanHome" width="3648" height="5472"/>
