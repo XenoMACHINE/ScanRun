@@ -16,6 +16,8 @@ class DuelTableViewCell: UITableViewCell {
     @IBOutlet weak var duelTitle: UILabel!
     @IBOutlet weak var duelDuration: UILabel!
     
+    var tmpUrl : String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -67,10 +69,14 @@ class DuelTableViewCell: UITableViewCell {
                 NiceActivityIndicator().stopAnimating(self.duelMedia)
                 return }
             let product = Product(json: data)
+            guard self.tmpUrl != product.imageUrl else {
+                NiceActivityIndicator().stopAnimating(self.duelMedia)
+                return } //already loaded
             guard let imgUrl = product.imageUrl else {
                 NiceActivityIndicator().stopAnimating(self.duelMedia)
                 return }
-            
+            self.tmpUrl = imgUrl
+
             self.duelMedia.downloaded(from: imgUrl, callback: {
                 NiceActivityIndicator().stopAnimating(self.duelMedia)
             })

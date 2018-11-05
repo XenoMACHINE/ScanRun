@@ -117,6 +117,16 @@ class DuelDetailViewController: UIViewController {
     }
     
     @IBAction func onLaunchDuel(_ sender: Any) {
+        guard let duelId = duel?.id, let duration = duel?.duration ,let userId = UserManager.shared.userId else { return }
+        let launchDate = Timestamp(date: Date())
+        let endDate = Timestamp(date: Date().addingTimeInterval(duration))
+        db.collection("duels").document(duelId).updateData(["launchDate":launchDate,
+                                                            "endDate":endDate,
+                                                            "isPublic":false,
+                                                            "idChallenger":userId])
+        let ref = db.collection("duels").document(duelId)
+        db.collection("users").document(userId).updateData(["duels": FieldValue.arrayUnion([ref])])
+        
         self.dismiss(animated: true)
     }
     

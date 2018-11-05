@@ -13,6 +13,8 @@
 		45849C03213FE978005AB34A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45849C02213FE978005AB34A /* ScanViewController.swift */; };
 		459845552163B7320071ABDF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459845542163B7320071ABDF /* MenuTableViewController.swift */; };
 		459845572163B8300071ABDF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459845562163B8300071ABDF /* MenuTableViewCell.swift */; };
+		AD0915B82190F2A400DC9F04 /* MyDuelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */; };
+		AD0915BA2190F30100DC9F04 /* MyDuelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0915B92190F30100DC9F04 /* MyDuelCell.swift */; };
 		AD39378021721BE700C180AB /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39377F21721BE700C180AB /* NewProductViewController.swift */; };
 		AD39378221721EC800C180AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39378121721EC800C180AB /* APIManager.swift */; };
 		AD3937842172253200C180AB /* UsefulExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3937832172253200C180AB /* UsefulExtensions.swift */; };
@@ -52,6 +54,8 @@
 		459845542163B7320071ABDF /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		459845562163B8300071ABDF /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		64DB659265CEC5945BDAA98F /* Pods_ScanRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDuelsViewController.swift; sourceTree = "<group>"; };
+		AD0915B92190F30100DC9F04 /* MyDuelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDuelCell.swift; sourceTree = "<group>"; };
 		AD39377F21721BE700C180AB /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
 		AD39378121721EC800C180AB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		AD3937832172253200C180AB /* UsefulExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulExtensions.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				AD39F5A5218B54D50016993B /* ScoresViewController.swift */,
 				AD9C3356218F4F85009C1580 /* CreateDuelViewController.swift */,
 				AD9C335E218F62F3009C1580 /* SearchProductViewController.swift */,
+				AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				456C69C32164CDD600F9FD8D /* DuelTableViewCell.swift */,
 				AD39F5A3218B54B60016993B /* ScoreCell.swift */,
 				AD9C335C218F6213009C1580 /* ClassicCell.swift */,
+				AD0915B92190F30100DC9F04 /* MyDuelCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -409,9 +415,11 @@
 				AD9C335B218F5667009C1580 /* FriendsViewController.swift in Sources */,
 				AD5B756B2141924D008F5A39 /* NVActivityIndicatorView.swift in Sources */,
 				AD39F5A2218B4E370016993B /* UserViewController.swift in Sources */,
+				AD0915B82190F2A400DC9F04 /* MyDuelsViewController.swift in Sources */,
 				AD3937842172253200C180AB /* UsefulExtensions.swift in Sources */,
 				AD39378021721BE700C180AB /* NewProductViewController.swift in Sources */,
 				456C69C92165090000F9FD8D /* DuelManager.swift in Sources */,
+				AD0915BA2190F30100DC9F04 /* MyDuelCell.swift in Sources */,
 				AD39F5A4218B54B60016993B /* ScoreCell.swift in Sources */,
 				AD80F4392141D487006B5B5D /* GlobalButton.swift in Sources */,
 				AD80F4372141CA7E006B5B5D /* SignInSingUpViewController.swift in Sources */,

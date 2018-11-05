@@ -217,13 +217,9 @@ class ScanViewController: UIViewController {
         captureSession.startRunning()
         productView.isHidden = true
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let duelVC = storyBoard.instantiateViewController(withIdentifier: "DuelViewController") as! DuelViewController
-        duelVC.idProduct = self.idProduct
-        //self.self.presentingViewController?.navigationController?.pushViewController(duelVC, animated: true)
-        //let tmp = self
-        self.present(duelVC, animated: true) {
-            //tmp.dismiss(animated: false)
-        }
+        let duelVC = storyBoard.instantiateViewController(withIdentifier: "CreateDuelViewController") as! CreateDuelViewController
+        duelVC.chooseProduct = self.productFound
+        self.present(duelVC, animated: true)
     }
     
     @IBAction func onClose(_ sender: Any) {

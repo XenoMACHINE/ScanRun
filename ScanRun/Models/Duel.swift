@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class Duel: NSObject {
     
@@ -17,6 +18,7 @@ class Duel: NSObject {
     var isPublic : Bool?
     var duration : Double?
     var idCreator : String?
+    var endDate : Timestamp?
     
     init(title : String?, id : String?, isClosed : Bool? = false, idProduct : String?, isPublic : Bool?, duration : Double?) {
         self.title = title
@@ -35,5 +37,6 @@ class Duel: NSObject {
         self.isPublic = json["isPublic"] as? Bool
         self.duration = json["duration"] as? Double
         self.idCreator = json["idCreator"] as? String
+        self.endDate = json["endDate"] as? Timestamp
     }
 }

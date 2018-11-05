@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseFirestore
 
-class FriendsViewController: UITableViewController{
+class FriendsViewController: UIViewController{
 
     @IBOutlet var friendsTableView: UITableView!
     
@@ -44,19 +44,21 @@ class FriendsViewController: UITableViewController{
             }
         }
     }
+}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension FriendsViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : ClassicCell = tableView.dequeueReusableCell(withIdentifier: "ClassicCell", for: indexPath) as! ClassicCell
         let user = friends[indexPath.row]
         cell.titleLabel?.text = user.username ?? user.email
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let presenter = self.presentingViewController as? CreateDuelViewController{
             let user = friends[indexPath.row]
             presenter.idFriend = user.id
@@ -64,5 +66,4 @@ class FriendsViewController: UITableViewController{
         }
         self.dismiss(animated: true)
     }
-
 }

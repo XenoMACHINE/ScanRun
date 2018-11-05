@@ -10,9 +10,11 @@ import UIKit
 import FirebaseAuth
 
 enum MenuData : String {
-    case HOME = "Home"
-    case DISCONNECTION = "Disconnection"
+    case HOME = "Accueil"
+    case DISCONNECTION = "Déconnexion"
     case PROFILE = "Profile"
+    case DUELS = "Mes duels"
+    case SCORES = "Classement"
 }
 
 class MenuTableViewController: UITableViewController {
@@ -26,10 +28,14 @@ class MenuTableViewController: UITableViewController {
         
         if let iconHome = UIImage(named: "iconHome"),
             let iconUser = UIImage(named: "user"),
+            let iconDuel = UIImage(named: "duel"),
+            let iconScore = UIImage(named: "score"),
             let iconDisconnection = UIImage(named: "iconDisconnection") {
             
             dataTable.append((menuData: .HOME, image: iconHome))
             dataTable.append((menuData: .PROFILE, image: iconUser))
+            dataTable.append((menuData: .DUELS, image: iconDuel))
+            dataTable.append((menuData: .SCORES, image: iconScore))
             dataTable.append((menuData: .DISCONNECTION, image: iconDisconnection))
         }
         
@@ -54,17 +60,43 @@ class MenuTableViewController: UITableViewController {
         switch dataTable[indexPath.row].menuData {
             
         case .HOME:
-            break
+            dismiss(animated: true)
         case .DISCONNECTION:
             disconnect()
-            return
         case .PROFILE:
-            // TODO
-            print("Profile TO DO")
+            goToProfile()
+        case .DUELS:
+            goToDuels()
+        case .SCORES:
+            goToScores()
         }
-        
-        dismiss(animated: true)
-        
+    }
+    
+    func goToScores(){
+        self.dismiss(animated: true) {
+            guard let topController = UIApplication.topViewController() else { return }
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "ScoresViewController") as! ScoresViewController
+            topController.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    func goToDuels(){
+        self.dismiss(animated: true) {
+            guard let topController = UIApplication.topViewController() else { return }
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "MyDuelsViewController") as! MyDuelsViewController
+            topController.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    func goToProfile(){
+        self.dismiss(animated: true) {
+            guard let topController = UIApplication.topViewController() else { return }
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "UserViewController") as! UserViewController
+            topController.present(controller, animated: true)
+        }
     }
     
     func disconnect() {
@@ -72,8 +104,8 @@ class MenuTableViewController: UITableViewController {
             guard let topController = UIApplication.topViewController() else { return }
             try? Auth.auth().signOut()
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let signInSingUpViewController = storyBoard.instantiateViewController(withIdentifier: "SignInSingUpViewController") as! SignInSingUpViewController
-            topController.present(signInSingUpViewController, animated: true)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "SignInSingUpViewController") as! SignInSingUpViewController
+            topController.present(controller, animated: true)
         }
     }
     

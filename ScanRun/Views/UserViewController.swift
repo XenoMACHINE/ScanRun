@@ -16,7 +16,7 @@ class UserViewController: UIViewController {
     
     lazy var db = Firestore.firestore()
 
-    var userId : String?
+    var userId = UserManager.shared.userId
     
     override func viewDidLoad() {
         super.viewDidLoad()

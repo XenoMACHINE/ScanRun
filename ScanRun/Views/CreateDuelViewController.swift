@@ -106,17 +106,19 @@ class CreateDuelViewController: UIViewController {
             let duration = getDuration()
             else { self.showAlert(title: "Remplissze tous les champs", message: "")
             return }
+        let id = db.collection("duels").document().documentID
         var duel : [String : Any] = [
             "title"     : titletf.text ?? "",
             "isPublic"  : switchPublic.isOn,
             "idCreator" : UserManager.shared.userId ?? "",
+            "id" : id,
             "idProduct" : idProduct,
             "duration"  : duration
         ]
         if let idChallenger = idFriend {
             duel["idChallenger"] = idChallenger
         }
-        db.collection("duels").addDocument(data: duel)
+        db.collection("duels").document(id).setData(duel)
         self.dismiss(animated: true)
     }
 }
