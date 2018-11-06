@@ -106,6 +106,18 @@ extension MyDuelsViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let duel = myDuels[indexPath.row]
+        if let product = productByDuelId[duel.id ?? ""]{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "CheckDuelViewController") as! CheckDuelViewController
+            let cell = tableView.cellForRow(at: indexPath) as? MyDuelCell
+            product.loadedImage = cell?.imageDuel.image
+            
+            controller.product = product
+            controller.duel = duel
+            self.navigationController?.pushViewController(controller, animated: true)
+
+        }
         tableView.reloadData()
     }
 }

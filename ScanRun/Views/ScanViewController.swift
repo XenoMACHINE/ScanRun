@@ -113,6 +113,13 @@ class ScanViewController: UIViewController {
                     
                     self.productFound = Product(json: json)
                     
+                    if let nav = self.presentingViewController as? UINavigationController,
+                        let presenter = nav.topViewController as? CheckDuelViewController{
+                        
+                        presenter.productScanned = self.productFound
+                        self.dismiss(animated: true)
+                    }
+                    
                     if let title = json["name"] as? String{
                         if title != "" {
                             self.titleLabel.text = title.uppercased()
