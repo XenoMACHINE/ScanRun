@@ -35,7 +35,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "ScanRun"
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
         let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "UISideMenuNavigationController") as! UISideMenuNavigationController
         SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
         
@@ -67,12 +68,6 @@ class HomeViewController: UIViewController {
             self.present(signInSingUpViewController, animated: true)
         }
     }
-    
-//    func getNbProductsInDb(){
-//        db.collection("products").getDocuments { (snap, error) in
-//            print(snap)
-//        }
-//    }
     
     func getPublicDuels(){
         NiceActivityIndicatorBuilder().setColor(UIColor.white).build().startAnimating(tableView)
@@ -116,20 +111,33 @@ class HomeViewController: UIViewController {
     func waitDuel(){
         if let userId = UserManager.shared.userId{
             db.collection("duels")
-                .whereField("userTarget", isEqualTo: userId)
-                .whereField("closed", isEqualTo: false).addSnapshotListener({ (snapshot, error) in
+                .whereField("idChallenger", isEqualTo: userId)
+                .addSnapshotListener({ (snapshot, error) in
                     for snap in snapshot?.documents ?? []{
-                        if let userId = snap.data()["userLaunch"] as? String{
-                            let validAction = UIAlertAction(title: "Voir", style: .cancel, handler: { (action) in
-                                print("Go to duel")
-                            })
+                        let duel = Duel(json: snap.data())
+                        guard duel.launchDate == nil else { continue }
+                        if let userId = duel.idCreator {
                             
-                            self.showAlert(title: "Vous venez de recevoir un duel !", message: "Alex vous défie !", actions: [validAction])
+                            self.db.collection("users").document(userId).getDocument(completion: { (userSnap, err) in
+                                let user = User(json: userSnap?.data() ?? [:])
+                                let validAction = UIAlertAction(title: "Voir", style: .default, handler: { (action) in
+                                    self.goToDuel(duel: duel)
+                                })
+                                
+                                self.showAlert(title: "Vous venez de recevoir un duel !", message: "\(user.username ?? user.email ?? "Un joueur") vous défie :)", actions: [validAction])
+                            })
                         }
+                        return
                     }
                 })
         }
-
+    }
+    
+    func goToDuel(duel : Duel){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "DuelDetailViewController") as! DuelDetailViewController
+        controller.duel = duel
+        self.present(controller, animated: true)
     }
 
     func testFirestore(){
@@ -213,10 +221,7 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.reloadData()
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "DuelDetailViewController") as! DuelDetailViewController
-        controller.duel = duelArray[indexPath.row]
-        self.present(controller, animated: true)
+        goToDuel(duel: duelArray[indexPath.row])
     }
     
 }

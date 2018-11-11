@@ -19,6 +19,8 @@ class Duel: NSObject {
     var duration : Double?
     var idCreator : String?
     var endDate : Timestamp?
+    var launchDate : Timestamp?
+    var succeed = false
     
     init(title : String?, id : String?, isClosed : Bool? = false, idProduct : String?, isPublic : Bool?, duration : Double?) {
         self.title = title
@@ -38,5 +40,7 @@ class Duel: NSObject {
         self.duration = json["duration"] as? Double
         self.idCreator = json["idCreator"] as? String
         self.endDate = json["endDate"] as? Timestamp
+        self.launchDate = json["launchDate"] as? Timestamp
+        self.succeed = json["succeed"] as? Bool ?? false
     }
 }

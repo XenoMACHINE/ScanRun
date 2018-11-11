@@ -16,7 +16,7 @@ class NiceActivityIndicator {
     var moveX : CGFloat = 0
     var moveY : CGFloat = 0
     var type = NVActivityIndicatorType.ballRotateChase
-    var color = UIColor.black
+    var color = UIColor.white
 
     init(moveX : CGFloat = 0, moveY : CGFloat = 0, size : CGFloat = 50){
         self.moveX = moveX

@@ -103,6 +103,10 @@ class NewProductViewController: UIViewController {
         self.dismiss(animated: true)
         
     }
+    
+    @IBAction func onClose(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension NewProductViewController : UITextFieldDelegate {

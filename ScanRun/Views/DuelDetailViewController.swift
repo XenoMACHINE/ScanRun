@@ -116,6 +116,16 @@ class DuelDetailViewController: UIViewController {
         }
     }
     
+    func wantToancelDuel(){
+        guard let duelId = duel?.id else { return }
+        let cancelDuelAction = UIAlertAction(title: "Oui", style: .default) { (action) in
+            self.db.collection("duels").document(duelId).delete()
+            self.dismiss(animated: true)
+        }
+        let noAction = UIAlertAction(title: "Non", style: .cancel)
+        self.showAlert(title: "Etes-vous sûr de refuser le défi ?", message: "Attention, vous ne pourrez plus relever ce défi", actions: [cancelDuelAction,noAction])
+    }
+    
     @IBAction func onLaunchDuel(_ sender: Any) {
         guard let duelId = duel?.id, let duration = duel?.duration ,let userId = UserManager.shared.userId else { return }
         let launchDate = Timestamp(date: Date())
@@ -131,6 +141,10 @@ class DuelDetailViewController: UIViewController {
     }
     
     @IBAction func onClose(_ sender: Any) {
+        if duel?.isPublic == false {
+            wantToancelDuel()
+            return
+        }
         self.dismiss(animated: true)
     }
     

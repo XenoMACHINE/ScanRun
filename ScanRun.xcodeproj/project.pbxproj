@@ -15,6 +15,7 @@
 		459845572163B8300071ABDF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459845562163B8300071ABDF /* MenuTableViewCell.swift */; };
 		AD0915B82190F2A400DC9F04 /* MyDuelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */; };
 		AD0915BA2190F30100DC9F04 /* MyDuelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0915B92190F30100DC9F04 /* MyDuelCell.swift */; };
+		AD0FB7352196F9F500E1AEDD /* LocalisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0FB7342196F9F500E1AEDD /* LocalisationViewController.swift */; };
 		AD39378021721BE700C180AB /* NewProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39377F21721BE700C180AB /* NewProductViewController.swift */; };
 		AD39378221721EC800C180AB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39378121721EC800C180AB /* APIManager.swift */; };
 		AD3937842172253200C180AB /* UsefulExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3937832172253200C180AB /* UsefulExtensions.swift */; };
@@ -57,6 +58,7 @@
 		64DB659265CEC5945BDAA98F /* Pods_ScanRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDuelsViewController.swift; sourceTree = "<group>"; };
 		AD0915B92190F30100DC9F04 /* MyDuelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDuelCell.swift; sourceTree = "<group>"; };
+		AD0FB7342196F9F500E1AEDD /* LocalisationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalisationViewController.swift; sourceTree = "<group>"; };
 		AD39377F21721BE700C180AB /* NewProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductViewController.swift; sourceTree = "<group>"; };
 		AD39378121721EC800C180AB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		AD3937832172253200C180AB /* UsefulExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulExtensions.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				AD9C335E218F62F3009C1580 /* SearchProductViewController.swift */,
 				AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */,
 				AD7B32D1219247B5001C1CD3 /* CheckDuelViewController.swift */,
+				AD0FB7342196F9F500E1AEDD /* LocalisationViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				459845552163B7320071ABDF /* MenuTableViewController.swift in Sources */,
 				AD9C335D218F6213009C1580 /* ClassicCell.swift in Sources */,
 				459845572163B8300071ABDF /* MenuTableViewCell.swift in Sources */,
+				AD0FB7352196F9F500E1AEDD /* LocalisationViewController.swift in Sources */,
 				AD9C3357218F4F85009C1580 /* CreateDuelViewController.swift in Sources */,
 				AD39F5A6218B54D50016993B /* ScoresViewController.swift in Sources */,
 				AD5C8CED217DC0940081B706 /* ProductViewController.swift in Sources */,

@@ -29,6 +29,7 @@ class MyDuelsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -86,6 +87,12 @@ extension MyDuelsViewController : UITableViewDataSource, UITableViewDelegate{
             cell.subTitleLabel.text = product.brand
             cell.setImage(imageUrl: product.imageUrl)
         }
+        
+        if duel.succeed {
+            cell.timeLeftLabel.text = "REUSSI"
+            cell.tag = 1
+            return cell
+        }
     
         if let endDate = duel.endDate?.dateValue(){
             let calendar = Calendar.current
@@ -99,18 +106,26 @@ extension MyDuelsViewController : UITableViewDataSource, UITableViewDelegate{
             cell.timeLeftLabel.text = strDays + strHours + strMinutes + strSeconds
             if cell.timeLeftLabel.text == "" {
                 cell.timeLeftLabel.text = "FINI"
+                cell.tag = 1
             }
+        }else{
+            cell.timeLeftLabel.text = "EN ATTENTE"
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.reloadData()
+
+        let cell = tableView.cellForRow(at: indexPath) as? MyDuelCell
+        guard cell?.tag == 0 else { return }
+        
         let duel = myDuels[indexPath.row]
         if let product = productByDuelId[duel.id ?? ""]{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "CheckDuelViewController") as! CheckDuelViewController
-            let cell = tableView.cellForRow(at: indexPath) as? MyDuelCell
+            
             product.loadedImage = cell?.imageDuel.image
             
             controller.product = product
@@ -118,6 +133,5 @@ extension MyDuelsViewController : UITableViewDataSource, UITableViewDelegate{
             self.navigationController?.pushViewController(controller, animated: true)
 
         }
-        tableView.reloadData()
     }
 }

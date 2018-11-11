@@ -368,7 +368,80 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eE-k5-jWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2445.5999999999999" y="-998.05097451274366"/>
+            <point key="canvasLocation" x="2446" y="-998"/>
+        </scene>
+        <!--Localisation View Controller-->
+        <scene sceneID="8kJ-S6-mEx">
+            <objects>
+                <viewController storyboardIdentifier="LocalisationViewController" id="t3L-BH-GLJ" customClass="LocalisationViewController" customModule="ScanRun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qk1-aW-FDJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYi-oZ-Efr">
+                                <rect key="frame" x="180" y="326" width="15" height="15"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="FFX-28-mmO"/>
+                                    <constraint firstAttribute="width" secondItem="QYi-oZ-Efr" secondAttribute="height" multiplier="1:1" id="RZB-Mq-drt"/>
+                                </constraints>
+                            </view>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom de l'enseigne" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lOg-qc-OB7">
+                                <rect key="frame" x="10" y="30" width="355" height="30"/>
+                                <color key="backgroundColor" red="0.098291658320000003" green="0.1084624924" blue="0.1219930374" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="0.66666666669999997" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx3-2m-mRl" userLabel="CRÉER UN DÉFI" customClass="GlobalButton" customModule="ScanRun" customModuleProvider="target">
+                                <rect key="frame" x="15" y="602" width="345" height="50"/>
+                                <color key="backgroundColor" red="0.031372549020000001" green="0.2666666667" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Dea-vJ-5C8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="16"/>
+                                <state key="normal" title="VALIDER">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onClose:" destination="dQm-RW-ILq" eventType="touchUpInside" id="0XN-dA-PmA"/>
+                                    <action selector="onClose:" destination="L2x-ro-qPM" eventType="touchUpInside" id="jlz-rz-VFb"/>
+                                    <action selector="onValid:" destination="t3L-BH-GLJ" eventType="touchUpInside" id="EEd-N8-S8Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QYi-oZ-Efr" firstAttribute="centerX" secondItem="qk1-aW-FDJ" secondAttribute="centerX" id="Dhw-CW-SYP"/>
+                            <constraint firstItem="QYi-oZ-Efr" firstAttribute="centerY" secondItem="qk1-aW-FDJ" secondAttribute="centerY" id="Fhj-8y-dEl"/>
+                            <constraint firstItem="lOg-qc-OB7" firstAttribute="leading" secondItem="zBj-pN-jAu" secondAttribute="leading" constant="10" id="Itb-uT-72K"/>
+                            <constraint firstItem="zBj-pN-jAu" firstAttribute="bottom" secondItem="nx3-2m-mRl" secondAttribute="bottom" constant="15" id="Rzb-1A-ato"/>
+                            <constraint firstItem="lOg-qc-OB7" firstAttribute="top" secondItem="zBj-pN-jAu" secondAttribute="top" constant="10" id="ZLE-O7-98O"/>
+                            <constraint firstItem="zBj-pN-jAu" firstAttribute="trailing" secondItem="lOg-qc-OB7" secondAttribute="trailing" constant="10" id="jEL-pd-p9W"/>
+                            <constraint firstItem="zBj-pN-jAu" firstAttribute="trailing" secondItem="nx3-2m-mRl" secondAttribute="trailing" constant="15" id="pFX-Pv-aYo"/>
+                            <constraint firstItem="nx3-2m-mRl" firstAttribute="leading" secondItem="zBj-pN-jAu" secondAttribute="leading" constant="15" id="zpJ-oj-Y3u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zBj-pN-jAu"/>
+                    </view>
+                    <connections>
+                        <outlet property="enseigneNameTf" destination="lOg-qc-OB7" id="UUW-5X-nM8"/>
+                        <outlet property="pointView" destination="QYi-oZ-Efr" id="emf-PB-idl"/>
+                        <outlet property="validBtn" destination="nx3-2m-mRl" id="2Qw-R5-Igd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jg4-hv-eJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3353" y="-998"/>
         </scene>
         <!--Create Duel View Controller-->
         <scene sceneID="0yh-dg-8n5">
@@ -701,6 +774,11 @@
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="code barre" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-ha-FLG">
                                 <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ts0-40-4ry">
                                 <rect key="frame" x="0.0" y="84" width="375" height="503"/>
@@ -1269,6 +1347,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPi-gg-NSp">
+                                <rect key="frame" x="8" y="25" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="fKS-sc-GXZ"/>
+                                    <constraint firstAttribute="width" secondItem="QPi-gg-NSp" secondAttribute="height" multiplier="1:1" id="sdT-cQ-kUO"/>
+                                </constraints>
+                                <state key="normal" image="cancel">
+                                    <color key="titleColor" red="0.10980392160000001" green="0.1176470588" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClose:" destination="8uJ-7l-Ygj" eventType="touchUpInside" id="AWb-ew-M1e"/>
+                                    <action selector="onClose:" destination="lDk-dh-4WD" eventType="touchUpInside" id="UKV-3l-y4I"/>
+                                    <action selector="onClose:" destination="xyt-N5-1lM" eventType="touchUpInside" id="nAp-y8-c4g"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flk-er-vVu" customClass="GlobalButton" customModule="ScanRun" customModuleProvider="target">
                                 <rect key="frame" x="12" y="605" width="351" height="50"/>
                                 <color key="backgroundColor" red="0.031372549020000001" green="0.2666666667" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1368,17 +1461,21 @@
                         <constraints>
                             <constraint firstItem="lfo-F0-UbM" firstAttribute="trailing" secondItem="flk-er-vVu" secondAttribute="trailing" constant="12" id="0jc-EJ-bgc"/>
                             <constraint firstItem="flk-er-vVu" firstAttribute="top" secondItem="BuI-0c-GV0" secondAttribute="bottom" constant="20" id="3ZP-Vm-3fT"/>
+                            <constraint firstItem="QPi-gg-NSp" firstAttribute="width" secondItem="QPi-gg-NSp" secondAttribute="height" multiplier="1:1" id="41c-ce-bGn"/>
                             <constraint firstItem="t83-Dz-esR" firstAttribute="top" secondItem="zpC-Ji-6IE" secondAttribute="bottom" constant="33" id="A5R-4I-PKO"/>
                             <constraint firstItem="flk-er-vVu" firstAttribute="leading" secondItem="lfo-F0-UbM" secondAttribute="leading" constant="12" id="F7X-aG-ZHs"/>
                             <constraint firstItem="lfo-F0-UbM" firstAttribute="trailing" secondItem="BuI-0c-GV0" secondAttribute="trailing" constant="20" id="QfJ-Kx-Lqm"/>
                             <constraint firstItem="zpC-Ji-6IE" firstAttribute="top" secondItem="lfo-F0-UbM" secondAttribute="top" id="Qzn-gN-7w4"/>
                             <constraint firstItem="BuI-0c-GV0" firstAttribute="leading" secondItem="lfo-F0-UbM" secondAttribute="leading" constant="20" id="d10-6M-h2Y"/>
+                            <constraint firstItem="QPi-gg-NSp" firstAttribute="leading" secondItem="lfo-F0-UbM" secondAttribute="leading" constant="8" id="lUW-zi-zio"/>
+                            <constraint firstItem="QPi-gg-NSp" firstAttribute="centerY" secondItem="zpC-Ji-6IE" secondAttribute="centerY" id="mXG-Pj-sJ2"/>
                             <constraint firstItem="zpC-Ji-6IE" firstAttribute="trailing" secondItem="lfo-F0-UbM" secondAttribute="trailing" id="q91-5r-DCq"/>
                             <constraint firstItem="BuI-0c-GV0" firstAttribute="top" secondItem="t83-Dz-esR" secondAttribute="bottom" constant="20" id="rVL-xP-JfE"/>
                             <constraint firstItem="lfo-F0-UbM" firstAttribute="trailing" secondItem="t83-Dz-esR" secondAttribute="trailing" constant="8" id="s06-TC-5pc"/>
                             <constraint firstItem="t83-Dz-esR" firstAttribute="leading" secondItem="lfo-F0-UbM" secondAttribute="leading" constant="8" id="tVu-HZ-zSr"/>
                             <constraint firstItem="lfo-F0-UbM" firstAttribute="bottom" secondItem="flk-er-vVu" secondAttribute="bottom" constant="12" id="vLt-8T-Cag"/>
                             <constraint firstItem="zpC-Ji-6IE" firstAttribute="leading" secondItem="lfo-F0-UbM" secondAttribute="leading" id="wvD-xi-2YE"/>
+                            <constraint firstItem="QPi-gg-NSp" firstAttribute="width" secondItem="QPi-gg-NSp" secondAttribute="height" multiplier="1:1" id="zbr-Tm-6xe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lfo-F0-UbM"/>
                     </view>

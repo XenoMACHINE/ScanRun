@@ -30,6 +30,7 @@ class CheckDuelViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = duel?.title
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setProductUI()
         
         self.setTimeLeft()
@@ -88,6 +89,9 @@ class CheckDuelViewController: UIViewController {
     }
     
     @IBAction func onEndDuel(_ sender: Any) {
-        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "LocalisationViewController") as! LocalisationViewController
+        controller.duel = self.duel
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
