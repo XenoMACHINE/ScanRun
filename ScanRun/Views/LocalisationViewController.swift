@@ -77,10 +77,24 @@ class LocalisationViewController: UIViewController {
         }
     }
     
+    func addPointsToUsers(){
+        guard let idCreator = duel?.idCreator, let idUser = UserManager.shared.userId else { return }
+        addPointToUser(idCreator, nbPoint: 10)
+        addPointToUser(idUser, nbPoint: 20)
+    }
+    
+    func addPointToUser(_ idUser : String, nbPoint : Int){
+        db.collection("users").document(idUser).getDocument { (snap, err) in
+            guard let score = snap?.data()?["score"] as? Int else { return }
+            self.db.collection("users").document(idUser).updateData(["score": score + nbPoint])
+        }
+    }
+    
     @IBAction func onValid(_ sender: Any) {
         guard let idProduct = duel?.idProduct, let geoPoint = coordonates, let duelId = duel?.id else { return }
         db.collection("products").document(idProduct).updateData(["geoPoints": FieldValue.arrayUnion([geoPoint])])
         db.collection("duels").document(duelId).updateData(["succeed" : true])
+        addPointsToUsers()
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

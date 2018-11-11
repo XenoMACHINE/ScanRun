@@ -33,11 +33,11 @@ class ScoresViewController: UIViewController {
     
     func getUsers(){
         NiceActivityIndicator().startAnimating(self.tableView)
-        db.collection("users").order(by: "score", descending: true).limit(to: 100).getDocuments { (snap, err) in
+        db.collection("users").order(by: "score", descending: true).limit(to: 100).addSnapshotListener({ (snap, err) in
             let usersSnap = snap?.documents ?? []
             self.users = usersSnap.map({ User(json: $0.data()) })
             NiceActivityIndicator().stopAnimating(self.tableView)
-        }
+        })
     }
 
 }
