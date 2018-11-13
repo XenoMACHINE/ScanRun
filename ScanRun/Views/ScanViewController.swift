@@ -147,32 +147,15 @@ class ScanViewController: UIViewController {
                     } else {
                         self.quantityLabel.text = ""
                     }
-                    if let image = json["image"] as? String{
-                        
-                        if image != "" {
-                            let imageUrlString = image
-                            let imageUrl:URL = URL(string: imageUrlString)!
-                            
-                            DispatchQueue.global(qos: .userInitiated).async {
-                                let imageData:NSData = NSData(contentsOf: imageUrl)!
-                                
-                                // When from background thread, UI needs to be updated on main_queue
-                                DispatchQueue.main.async {
-                                    let imageDef = UIImage(data: imageData as Data)
-                                    NiceActivityIndicator().stopAnimating(self.imageProduct)
-                                    self.productFound?.loadedImage = imageDef
-                                    self.imageProduct.image = imageDef
-                                    self.imageProduct.contentMode = UIViewContentMode.scaleAspectFit
-                                }
-                            }
-                        } else {
-                            self.imageProduct.image = #imageLiteral(resourceName: "placeholder")
-                            self.imageProduct.contentMode = UIViewContentMode.scaleAspectFit
+                    if let image = json["image"] as? String, image != "" {
+                        self.imageProduct.downloaded(from: image, callback: {
                             NiceActivityIndicator().stopAnimating(self.imageProduct)
-                        }
+                            if self.imageProduct.image == nil{
+                                self.imageProduct.image = UIImage(named: "placeholder")
+                            }
+                        })
                     } else {
-                        self.imageProduct.image = #imageLiteral(resourceName: "placeholder")
-                        self.imageProduct.contentMode = UIViewContentMode.scaleAspectFit
+                        self.imageProduct.image = UIImage(named: "placeholder")
                         NiceActivityIndicator().stopAnimating(self.imageProduct)
                     }
                     
