@@ -78,6 +78,8 @@ class CheckDuelViewController: UIViewController {
             timeLeftLabel.text = strDays + strHours + strMinutes + strSeconds
             if timeLeftLabel.text == "" {
                 timeLeftLabel.text = "FINI"
+                endDuelBtn.isEnabled = false
+                endDuelBtn.alpha = 0.5
             }
         }
     }

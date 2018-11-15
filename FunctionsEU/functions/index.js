@@ -208,34 +208,38 @@ let sendProduct = (req, res) =>{
 };
 
 let sendNotif = (req, res) => {
+    console.log("TRY SEND NOTIF")
+    const idUser = req.body.id;
+    const username = req.body.username || "Un joueur";
 
-    const idTargetUser = req.body.id;
-    const username = req.body.username;// || "Un joueur";
-    db.collection("users").doc(idTargetUser).get()
+    db.collection('users').doc(idUser).get()
         .then(doc => {
-            console.log(doc.data())
-            const FCMToken = doc.data()["FCMToken"];
-            const payload = {
-                notification: {
-                    title: username + " vous défie !",
-                    body: "Ouvrez l'application pour voir le défie !"
-                }
-            };
-            admin.messaging().sendToDevice(FCMToken, payload);
+            if (doc.data() != undefined){
+                const FCMToken = doc.data()["FCMToken"];
+                const payload = {
+                    notification: {
+                        title: username + " vous défie !",
+                        body: "Ouvrez l'application pour voir le défie !"
+                    }
+                };
+                admin.messaging().sendToDevice(FCMToken, payload);
+                return res.status(200).send("Notif sent")
+            }
+            return res.status(500).send("Error, user not found")
         });
 };
 
 
 //Config
 app.use(cors({ origin: true }));
-//app.use(authenticate);
+app.use(authenticate);
 
 //Roots
 app.get('/emptyRequest', emptyRequest);
 app.get('/getProduct/:ean', getProduct);
 app.get('/getMediaTest', getMedia);
 app.post('/sendProduct', sendProduct);
-//app.post('/sendNotif', bodyParser.json(), sendNotif);
+app.post('/sendNotif', sendNotif);
 
 //Deploy
 exports.api = functions

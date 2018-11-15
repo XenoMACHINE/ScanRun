@@ -53,5 +53,7 @@
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Laisse nous les accès à ta postion GPS</string>
+	<key>FirebaseMessagingAutoInitEnabled</key>
+	<false/>
 </dict>
 </plist>
