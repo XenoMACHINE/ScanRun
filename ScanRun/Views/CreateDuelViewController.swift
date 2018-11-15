@@ -92,6 +92,15 @@ class CreateDuelViewController: UIViewController {
         return secDuration
     }
     
+    func sendNotif(){
+        guard let idTarget = idFriend, !switchPublic.isOn, let idUser = UserManager.shared.userId else { return }
+        db.collection("users").document(idUser).getDocument { (snap, err) in
+            guard let data = snap?.data() else { return }
+            let name = data["username"] as? String ?? data["email"] as? String ?? "Un joueur"
+            APIManager.shared.sendNotif(userId: idTarget, from: name)
+        }
+    }
+    
     @IBAction func onClose(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -119,6 +128,9 @@ class CreateDuelViewController: UIViewController {
             duel["idChallenger"] = idChallenger
         }
         db.collection("duels").document(id).setData(duel)
+        
+        sendNotif()
+        
         self.dismiss(animated: true)
     }
 }

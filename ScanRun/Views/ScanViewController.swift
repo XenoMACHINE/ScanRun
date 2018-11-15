@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import Alamofire
 
 class ScanViewController: UIViewController {
     
@@ -94,78 +93,67 @@ class ScanViewController: UIViewController {
             .build()
             .startAnimating(self.globalView)
         
-        let url = "https://europe-west1-scanruneu.cloudfunctions.net/api/getProduct/" + ean
-        let headers : HTTPHeaders = ["Authorization":"Bearer \(UserManager.shared.token ?? "")"]
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+        APIManager.shared.getProduct(ean: ean) { (json) in
             NiceActivityIndicator().stopAnimating(self.globalView)
-            switch response.result {
-            case .success:
-                if let json = response.result.value as? [String:Any]{
-                    self.productView.isHidden = false
-                    self.imageProduct.image = nil
-                    
-                    NiceActivityIndicatorBuilder()
+            if json.count > 0 {
+                self.productView.isHidden = false
+                self.imageProduct.image = nil
+                
+                NiceActivityIndicatorBuilder()
                     .setSize(100)
                     .setType(.ballPulse)
                     .setColor(.white)
                     .build()
                     .startAnimating(self.imageProduct)
+                
+                self.productFound = Product(json: json)
+                
+                if let nav = self.presentingViewController as? UINavigationController,
+                    let presenter = nav.topViewController as? CheckDuelViewController{
                     
-                    self.productFound = Product(json: json)
-                    
-                    if let nav = self.presentingViewController as? UINavigationController,
-                        let presenter = nav.topViewController as? CheckDuelViewController{
-                        
-                        presenter.productScanned = self.productFound
-                        self.dismiss(animated: true)
-                    }
-                    
-                    if let title = json["name"] as? String{
-                        if title != "" {
-                            self.titleLabel.text = title.uppercased()
-                        } else {
-                            self.titleLabel.text = ""
-                        }
+                    presenter.productScanned = self.productFound
+                    self.dismiss(animated: true)
+                }
+                
+                if let title = json["name"] as? String{
+                    if title != "" {
+                        self.titleLabel.text = title.uppercased()
                     } else {
                         self.titleLabel.text = ""
                     }
-                    if let brand = json["brand"] as? String{
-                        if brand != "" {
-                            self.brandLabel.text = "Marque : " + brand
-                        } else {
-                            self.brandLabel.text = ""
-                        }
+                } else {
+                    self.titleLabel.text = ""
+                }
+                if let brand = json["brand"] as? String{
+                    if brand != "" {
+                        self.brandLabel.text = "Marque : " + brand
                     } else {
                         self.brandLabel.text = ""
                     }
-                    if let quantity = json["quantity"] as? String{
-                        if quantity != "" {
-                            self.quantityLabel.text = "Quantité : " + quantity
-                        } else {
-                            self.quantityLabel.text = ""
-                        }
+                } else {
+                    self.brandLabel.text = ""
+                }
+                if let quantity = json["quantity"] as? String{
+                    if quantity != "" {
+                        self.quantityLabel.text = "Quantité : " + quantity
                     } else {
                         self.quantityLabel.text = ""
                     }
-                    if let image = json["image"] as? String, image != "" {
-                        self.imageProduct.downloaded(from: image, callback: {
-                            NiceActivityIndicator().stopAnimating(self.imageProduct)
-                            if self.imageProduct.image == nil{
-                                self.imageProduct.image = UIImage(named: "placeholder")
-                            }
-                        })
-                    } else {
-                        self.imageProduct.image = UIImage(named: "placeholder")
-                        NiceActivityIndicator().stopAnimating(self.imageProduct)
-                    }
-                    
+                } else {
+                    self.quantityLabel.text = ""
                 }
-                
-                break
-                
-            case .failure(let error):
-                print(error)
-                //TODO formulaire
+                if let image = json["image"] as? String, image != "" {
+                    self.imageProduct.downloaded(from: image, callback: {
+                        NiceActivityIndicator().stopAnimating(self.imageProduct)
+                        if self.imageProduct.image == nil{
+                            self.imageProduct.image = UIImage(named: "placeholder")
+                        }
+                    })
+                } else {
+                    self.imageProduct.image = UIImage(named: "placeholder")
+                    NiceActivityIndicator().stopAnimating(self.imageProduct)
+                }
+            }else{
                 let addProductAction = UIAlertAction(title: "Ajouter le produit", style: .default, handler: { (action) in
                     self.presentNewProduct()
                 })
@@ -176,7 +164,6 @@ class ScanViewController: UIViewController {
                 })
                 
                 self.showAlert(title: "Produit introuvable", message: "Donnez nous les informations de ce produit !", actions: [addProductAction,rescanAction])
-                break
             }
         }
     }

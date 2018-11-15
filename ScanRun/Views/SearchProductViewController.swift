@@ -36,14 +36,9 @@ class SearchProductViewController: UIViewController {
     
     func searchProduct(text: String){
         NiceActivityIndicatorBuilder().setColor(.white).build().startAnimating(self.view)
-        
-        let url = "https://europe-west1-scanruneu.cloudfunctions.net/api/getProduct/" + text
-        let headers : HTTPHeaders = ["Authorization":"Bearer \(UserManager.shared.token ?? "")"]
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            self.products.removeAll()
-            if let data = response.result.value as? [String:Any]{
-                self.products.append(Product(json: data))
-            }
+        self.products.removeAll()
+        APIManager.shared.getProduct(ean: text) { (data) in
+            self.products.append(Product(json: data))
             NiceActivityIndicator().stopAnimating(self.view)
         }
     }

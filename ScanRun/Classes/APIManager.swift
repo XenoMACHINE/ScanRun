@@ -55,4 +55,25 @@ class APIManager : NSObject {
         }
     }
     
+    func sendNotif(userId : String, from username : String){
+        let url = "https://europe-west1-scanruneu.cloudfunctions.net/api/sendNotif"
+        let headers : HTTPHeaders = ["Authorization":"Bearer \(UserManager.shared.token ?? "")"]
+        let parameters : Parameters = ["id": userId, "username": username]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                print(response.value ?? "")
+                break
+                
+            case .failure(let error):
+                if let data = response.data, let str = String(data: data, encoding: String.Encoding.utf8){
+                    print("Server Error: " + str)
+                }
+                print(error.localizedDescription)
+                break
+            }
+        }
+    }
+    
 }
