@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.23.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jed-63-QmK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jed-63-QmK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.16.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -771,7 +771,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="code barre" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-ha-FLG">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Code barre" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-ha-FLG">
                                 <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -2047,6 +2047,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0B-0A-HnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-381" y="535"/>
+        </scene>
+        <!--Search Friend View Controller-->
+        <scene sceneID="nyV-ap-cAL">
+            <objects>
+                <viewController storyboardIdentifier="SearchFriendViewController" id="xd6-aB-HIw" customClass="SearchFriendViewController" customModule="ScanRun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pfB-f4-kIm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Trouver un ami" translatesAutoresizingMaskIntoConstraints="NO" id="1Di-4n-bjp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="485-UQ-4Ro">
+                                <rect key="frame" x="0.0" y="84" width="375" height="501"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassicCell" id="WG4-VC-pIM" customClass="ClassicCell" customModule="ScanRun" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WG4-VC-pIM" id="CjN-8t-lhy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtV-kr-1Ro">
+                                                    <rect key="frame" x="23" y="19.5" width="42" height="21"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="KtV-kr-1Ro" firstAttribute="leading" secondItem="CjN-8t-lhy" secondAttribute="leadingMargin" constant="8" id="1Pc-OU-5HJ"/>
+                                                <constraint firstItem="KtV-kr-1Ro" firstAttribute="centerY" secondItem="CjN-8t-lhy" secondAttribute="centerY" id="CEg-Xs-X5p"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="KtV-kr-1Ro" id="n46-Ss-G7Q"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1Di-4n-bjp" firstAttribute="leading" secondItem="W1N-aW-ikO" secondAttribute="leading" id="3v8-xo-YpT"/>
+                            <constraint firstItem="1Di-4n-bjp" firstAttribute="trailing" secondItem="W1N-aW-ikO" secondAttribute="trailing" id="L4c-84-UtE"/>
+                            <constraint firstItem="485-UQ-4Ro" firstAttribute="trailing" secondItem="W1N-aW-ikO" secondAttribute="trailing" id="Vax-1D-cW0"/>
+                            <constraint firstItem="W1N-aW-ikO" firstAttribute="bottom" secondItem="485-UQ-4Ro" secondAttribute="bottom" constant="82" id="e6K-Lz-BVS"/>
+                            <constraint firstItem="485-UQ-4Ro" firstAttribute="leading" secondItem="W1N-aW-ikO" secondAttribute="leading" id="hc3-xK-9uy"/>
+                            <constraint firstItem="1Di-4n-bjp" firstAttribute="top" secondItem="W1N-aW-ikO" secondAttribute="top" id="kod-aW-r0t"/>
+                            <constraint firstItem="485-UQ-4Ro" firstAttribute="top" secondItem="1Di-4n-bjp" secondAttribute="bottom" constant="8" id="xuo-bQ-5ap"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W1N-aW-ikO"/>
+                    </view>
+                    <connections>
+                        <outlet property="friendsTableView" destination="485-UQ-4Ro" id="C3d-8p-71n"/>
+                        <outlet property="searchBar" destination="1Di-4n-bjp" id="Y0a-Tl-OjI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NCP-LZ-QRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2324" y="2016.3418290854574"/>
         </scene>
     </scenes>
     <resources>

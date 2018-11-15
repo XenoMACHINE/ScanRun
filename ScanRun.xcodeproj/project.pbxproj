@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		455639B4219DB8BB00E5752D /* SearchFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455639B3219DB8BB00E5752D /* SearchFriendViewController.swift */; };
 		456C69C42164CDD600F9FD8D /* DuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C69C32164CDD600F9FD8D /* DuelTableViewCell.swift */; };
 		456C69C62164D12200F9FD8D /* Duel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C69C52164D12200F9FD8D /* Duel.swift */; };
 		456C69C92165090000F9FD8D /* DuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C69C82165090000F9FD8D /* DuelManager.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		06888B8CB4A714566D6F11C8 /* Pods-ScanRun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanRun.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanRun/Pods-ScanRun.debug.xcconfig"; sourceTree = "<group>"; };
 		34D3FDB3EFA8116FD9277D8C /* Pods-ScanRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanRun.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanRun/Pods-ScanRun.release.xcconfig"; sourceTree = "<group>"; };
+		455639B3219DB8BB00E5752D /* SearchFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendViewController.swift; sourceTree = "<group>"; };
 		456C69C32164CDD600F9FD8D /* DuelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelTableViewCell.swift; sourceTree = "<group>"; };
 		456C69C52164D12200F9FD8D /* Duel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duel.swift; sourceTree = "<group>"; };
 		456C69C82165090000F9FD8D /* DuelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelManager.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */,
 				AD7B32D1219247B5001C1CD3 /* CheckDuelViewController.swift */,
 				AD0FB7342196F9F500E1AEDD /* LocalisationViewController.swift */,
+				455639B3219DB8BB00E5752D /* SearchFriendViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				AD39F5A4218B54B60016993B /* ScoreCell.swift in Sources */,
 				AD80F4392141D487006B5B5D /* GlobalButton.swift in Sources */,
 				AD80F4372141CA7E006B5B5D /* SignInSingUpViewController.swift in Sources */,
+				455639B4219DB8BB00E5752D /* SearchFriendViewController.swift in Sources */,
 				AD5C8CF1217DCC020081B706 /* DuelDetailViewController.swift in Sources */,
 				AD7B32D2219247B5001C1CD3 /* CheckDuelViewController.swift in Sources */,
 				AD80F43B2141DABA006B5B5D /* DuelViewController.swift in Sources */,
