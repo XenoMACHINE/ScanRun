@@ -15,6 +15,7 @@ enum MenuData : String {
     case PROFILE = "Profile"
     case DUELS = "Mes duels"
     case SCORES = "Classement"
+    case FRIENDS = "Trouver des amis"
 }
 
 class MenuTableViewController: UITableViewController {
@@ -27,12 +28,14 @@ class MenuTableViewController: UITableViewController {
         UIApplication.shared.statusBarView?.backgroundColor = UIColor(red:0.10, green:0.10, blue:0.10, alpha:1.0)
         
         if let iconHome = UIImage(named: "iconHome"),
+            let iconFriends = UIImage(named: "add-friend"),
             let iconUser = UIImage(named: "user"),
             let iconDuel = UIImage(named: "duel"),
             let iconScore = UIImage(named: "score"),
             let iconDisconnection = UIImage(named: "iconDisconnection") {
             
             dataTable.append((menuData: .HOME, image: iconHome))
+            dataTable.append((menuData: .FRIENDS, image: iconFriends))
             dataTable.append((menuData: .PROFILE, image: iconUser))
             dataTable.append((menuData: .DUELS, image: iconDuel))
             dataTable.append((menuData: .SCORES, image: iconScore))
@@ -69,6 +72,17 @@ class MenuTableViewController: UITableViewController {
             goToDuels()
         case .SCORES:
             goToScores()
+        case .FRIENDS:
+            goToSearchFriends()
+        }
+    }
+    
+    func goToSearchFriends() {
+        self.dismiss(animated: true) {
+            guard let topController = UIApplication.topViewController() else { return }
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "SearchFriendViewController") as! SearchFriendViewController
+            topController.navigationController?.pushViewController(controller, animated: true)
         }
     }
     

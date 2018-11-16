@@ -28,7 +28,6 @@
 		AD5C8CED217DC0940081B706 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C8CEC217DC0940081B706 /* ProductViewController.swift */; };
 		AD5C8CEF217DC1360081B706 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C8CEE217DC1360081B706 /* Product.swift */; };
 		AD5C8CF1217DCC020081B706 /* DuelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5C8CF0217DCC020081B706 /* DuelDetailViewController.swift */; };
-		AD780386219EBC8B00BDCD87 /* ProductLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD780385219EBC8B00BDCD87 /* ProductLocationViewController.swift */; };
 		AD7B32D2219247B5001C1CD3 /* CheckDuelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7B32D1219247B5001C1CD3 /* CheckDuelViewController.swift */; };
 		AD80F4372141CA7E006B5B5D /* SignInSingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */; };
 		AD80F4392141D487006B5B5D /* GlobalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F4382141D487006B5B5D /* GlobalButton.swift */; };
@@ -73,7 +72,6 @@
 		AD5C8CEC217DC0940081B706 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		AD5C8CEE217DC1360081B706 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AD5C8CF0217DCC020081B706 /* DuelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelDetailViewController.swift; sourceTree = "<group>"; };
-		AD780385219EBC8B00BDCD87 /* ProductLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLocationViewController.swift; sourceTree = "<group>"; };
 		AD7B32D1219247B5001C1CD3 /* CheckDuelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDuelViewController.swift; sourceTree = "<group>"; };
 		AD80F4362141CA7E006B5B5D /* SignInSingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSingUpViewController.swift; sourceTree = "<group>"; };
 		AD80F4382141D487006B5B5D /* GlobalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalButton.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */,
 				AD7B32D1219247B5001C1CD3 /* CheckDuelViewController.swift */,
 				AD0FB7342196F9F500E1AEDD /* LocalisationViewController.swift */,
-				AD780385219EBC8B00BDCD87 /* ProductLocationViewController.swift */,
 				455639B3219DB8BB00E5752D /* SearchFriendViewController.swift */,
 			);
 			path = Views;
@@ -441,7 +438,6 @@
 				AD80F43B2141DABA006B5B5D /* DuelViewController.swift in Sources */,
 				ADBA5AF3213F150A007ABEF5 /* AppDelegate.swift in Sources */,
 				456C69C62164D12200F9FD8D /* Duel.swift in Sources */,
-				AD780386219EBC8B00BDCD87 /* ProductLocationViewController.swift in Sources */,
 				AD5B7565214025A2008F5A39 /* UserManager.swift in Sources */,
 				456C69C42164CDD600F9FD8D /* DuelTableViewCell.swift in Sources */,
 				AD39378221721EC800C180AB /* APIManager.swift in Sources */,

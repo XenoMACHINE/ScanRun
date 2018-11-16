@@ -145,8 +145,11 @@
 				AD0915B72190F2A400DC9F04 /* MyDuelsViewController.swift */,
 				AD7B32D1219247B5001C1CD3 /* CheckDuelViewController.swift */,
 				AD0FB7342196F9F500E1AEDD /* LocalisationViewController.swift */,
+<<<<<<< HEAD
 				AD780385219EBC8B00BDCD87 /* ProductLocationViewController.swift */,
+=======
 				455639B3219DB8BB00E5752D /* SearchFriendViewController.swift */,
+>>>>>>> 420b2be08c1c47ef52698fcc6415182d8476d0ca
 			);
 			path = Views;
 			sourceTree = "<group>";
