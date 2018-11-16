@@ -11,6 +11,7 @@ import AVFoundation
 
 class ScanViewController: UIViewController {
     
+    @IBOutlet weak var geolocBtn: UIButton!
     @IBOutlet weak var targetView: UIView!
     @IBOutlet weak var globalView: UIView!
     @IBOutlet var messageLabel:UILabel!
@@ -108,6 +109,8 @@ class ScanViewController: UIViewController {
                 
                 self.productFound = Product(json: json)
                 
+                self.showGeoloc((self.productFound?.geoPoints.count ?? 0) > 0)
+                
                 if let nav = self.presentingViewController as? UINavigationController,
                     let presenter = nav.topViewController as? CheckDuelViewController{
                     
@@ -180,6 +183,18 @@ class ScanViewController: UIViewController {
         self.messageLabel.backgroundColor = UIColor.lightGray
         self.productView.isHidden = true
         self.captureSession.startRunning()
+    }
+    
+    func showGeoloc(_ show : Bool){
+        geolocBtn.alpha = show ? 1 : 0
+        geolocBtn.isEnabled = show
+    }
+    
+    @IBAction func onGeoloc(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "ProductLocationViewController") as! ProductLocationViewController
+        controller.product = productFound
+        self.present(controller, animated: true)
     }
     
     @IBAction func reScanProduct(_ sender: Any) {

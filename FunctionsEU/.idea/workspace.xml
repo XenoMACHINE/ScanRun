@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43363c01-72c9-4a60-880d-ef9ee12195aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ScanRun/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../ScanRun/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ScanRun/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ScanRun/Info.plist" afterDir="false" />
-    </list>
+    <list default="true" id="43363c01-72c9-4a60-880d-ef9ee12195aa" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="211" column="31" lean-forward="true" selection-start-line="211" selection-start-column="31" selection-end-line="211" selection-end-column="31" />
+            <state relative-caret-position="506">
+              <caret line="229" column="2" lean-forward="true" selection-start-line="229" selection-start-column="2" selection-end-line="229" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -251,12 +246,12 @@
       <workItem from="1541848446940" duration="29000" />
       <workItem from="1542114332972" duration="596000" />
       <workItem from="1542280972968" duration="5000" />
-      <workItem from="1542290007659" duration="2538000" />
+      <workItem from="1542290007659" duration="2724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14789000" />
+    <option name="totallyTimeSpent" value="14975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -300,8 +295,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/functions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="211" column="31" lean-forward="true" selection-start-line="211" selection-start-column="31" selection-end-line="211" selection-end-column="31" />
+        <state relative-caret-position="506">
+          <caret line="229" column="2" lean-forward="true" selection-start-line="229" selection-start-column="2" selection-end-line="229" selection-end-column="2" />
         </state>
       </provider>
     </entry>

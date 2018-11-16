@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 class Product: NSObject {
     
@@ -17,6 +18,7 @@ class Product: NSObject {
     var name : String?
     var quantity : String?
     var loadedImage : UIImage?
+    var geoPoints : [GeoPoint] = []
     
     init(json: [String:Any]){
         self.id = json["id"] as? String
@@ -24,5 +26,10 @@ class Product: NSObject {
         self.imageUrl = json["image"] as? String
         self.name = json["name"] as? String
         self.quantity = json["quantity"] as? String
+        
+        for geoPoint in json["geoPoints"] as? [[String:Any]] ?? []{
+            guard let latitude = geoPoint["_latitude"] as? Double,  let longitude = geoPoint["_longitude"] as? Double else { return }
+            geoPoints.append(GeoPoint(latitude: latitude, longitude: longitude))
+        }
     }
 }
