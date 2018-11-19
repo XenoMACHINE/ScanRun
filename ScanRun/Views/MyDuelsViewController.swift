@@ -116,7 +116,6 @@ extension MyDuelsViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.reloadData()
 
         let cell = tableView.cellForRow(at: indexPath) as? MyDuelCell
         guard cell?.tag == 0 else { return }
@@ -133,5 +132,8 @@ extension MyDuelsViewController : UITableViewDataSource, UITableViewDelegate{
             self.navigationController?.pushViewController(controller, animated: true)
 
         }
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.reloadData()
     }
 }

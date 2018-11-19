@@ -81,7 +81,7 @@ class DuelDetailViewController: UIViewController {
             timeType = "j"
         }
         
-        self.timeLabel.text = "\"Je te donne \(time) \(timeType) pour ce défie !\""
+        self.timeLabel.text = "\"Je te donne \(time) \(timeType) pour ce défi !\""
     }
     
     func setProductUI(){
